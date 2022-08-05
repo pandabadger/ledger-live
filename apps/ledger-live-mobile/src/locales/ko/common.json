@@ -81,7 +81,8 @@
     "seeMore" : "더 보기",
     "moreInfo" : "자세한 정보",
     "buyEth" : "이더리움 구매",
-    "popular" : "인기 있는"
+    "popular" : "인기 있는",
+    "comingSoon" : "곧 출시 예정"
   },
   "errors" : {
     "countervaluesUnavailable" : {
@@ -930,9 +931,9 @@
         "title" : "소득 창출",
         "desc" : "불로소득을 얻고 암호화폐를 성장시키세요"
       },
-      "mint": {
-        "title": "민팅",
-        "desc": "[ L ] Market 독점 콜라보레이션 NFT 민팅"
+      "mint" : {
+        "title" : "민팅",
+        "desc" : "[ L ] 마켓 독점 콜라보 NFT 민팅"
       }
     },
     "comingSoon" : "곧 출시 예정",
@@ -2061,6 +2062,36 @@
         "android" : "구글 플레이 스토어에서 리뷰"
       }
     },
+    "notifications" : {
+      "title" : "알림",
+      "desc" : "알림 관리",
+      "disabledNotifications" : {
+        "title" : "알림 설정이 꺼져있습니다",
+        "desc" : "{{platform}}(이)가 Ledger Live 알림을 차단하고 있습니다. 핸드폰에서 알림을 받아보시려면 장치 설정에 들어가 Ledger Live 알림을 켜 주세요.",
+        "turnOnNotif" : "알림 켜기",
+        "goToSettings" : "시스템 설정으로 이동"
+      },
+      "allowed" : {
+        "title" : "알림 허용",
+        "desc" : "암호화폐 및 시장 상황 등에 대한 알림 받기"
+      },
+      "transactions" : {
+        "title" : "트랜잭션",
+        "desc" : "암호화폐를 보내거나 받을 때 알림 받기"
+      },
+      "market" : {
+        "title" : "마켓",
+        "desc" : "중요한 시장 변화에 대한 업데이트 받아 보기"
+      },
+      "announcement" : {
+        "title" : "발표",
+        "desc" : "중요한 Ledger Live 업데이트 받아 보기"
+      },
+      "price" : {
+        "title" : "가격 알림",
+        "desc" : "시장 흐름을 놓치지 않도록 선호하는 코인의 가격 알림을 설정해 보세요"
+      }
+    },
     "help" : {
       "title" : "도움말",
       "header" : "도움말",
@@ -2092,6 +2123,14 @@
       "customManifest" : {
         "title" : "커스텀 플랫폼 Manifest 불러오기"
       }
+    }
+  },
+  "notifications" : {
+    "prompt" : {
+      "title" : "알림 켜기",
+      "desc" : "Ledger Live, Ledger 제품 및 보안 관련 중요 업데이트를 받아보세요. 해제는 언제든지 가능합니다.",
+      "allow" : "알림 허용",
+      "later" : "다음에 결정하기"
     }
   },
   "migrateAccounts" : {
@@ -3378,6 +3417,13 @@
             "broadcastError" : "트랜잭션이 실패한 것 같습니다. 트랜잭션이 전송되지 않았는지 몇 분 후 다시 확인하고 재시도하세요."
           }
         }
+      }
+    }
+  },
+  "cardano" : {
+    "info" : {
+      "balanceDoesNotIncludeRewards" : {
+        "title" : "스테이킹 보상은 총 잔액에 포함되지 않습니다."
       }
     }
   },
