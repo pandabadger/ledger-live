@@ -820,25 +820,26 @@
   },
   "ratings" : {
     "init" : {
-      "title" : "Vous aimez Ledger Live ?",
-      "description" : "L’app vous plaît ou vous pensez que nous pouvons l’améliorer ? Vos commentaires sont indispensables pour nous.",
+      "title" : "Que pensez-vous de l’app ?",
+      "description" : "Vos commentaires nous aident à perfectionner Ledger Live.",
       "cta" : {
-        "enjoy" : "C’est super",
-        "disappointed" : "Je suis déçu(e)",
+        "enjoy" : "Très satisfait(e)",
+        "disappointed" : "Déçu(e)",
         "notNow" : "Pas maintenant"
       }
     },
     "enjoy" : {
-      "title" : "Vous êtes super, vous aussi",
-      "description" : "Nous vous invitons à donner votre avis. Votre soutien nous est précieux et nous encourage à développer de nouvelles fonctionnalités.",
+      "title" : "Notez l’app",
+      "description" : "Nous vous invitons à partager votre avis. Votre soutien nous est précieux et nous encourage à développer de nouvelles fonctionnalités.",
       "cta" : {
-        "rate" : "Attribuez-nous 5 étoiles",
+        "rate" : "Noter 5 étoiles",
         "notNow" : "Pas maintenant"
       }
     },
     "disappointed" : {
       "title" : "Aidez-nous à faire mieux",
-      "description" : "Notre mission est d’améliorer l’app, et vos commentaires nous aident à répondre à vos besoins.",
+      "description" : "Si vous avez besoin d’aide ou souhaitez être recontacté(e), n’hésitez pas à utiliser notre chat en direct :",
+      "here" : "ici",
       "cta" : {
         "sendFeedback" : "Envoyer un commentaire",
         "notNow" : "Pas maintenant"
@@ -930,9 +931,9 @@
         "title" : "Gagner",
         "desc" : "Gagnez des récompenses passives et faites fructifier vos cryptos."
       },
-      "mint": {
-        "title": "Minter",
-        "desc": "Mintez et acquérez des NFT de collaborations exclusives sur le [ L ] Market."
+      "mint" : {
+        "title" : "Minter",
+        "desc" : "Mintez et acquérez les NFT de collaborations exclusives sur [ L ] Market"
       }
     },
     "comingSoon" : "Prochainement",
@@ -1050,7 +1051,7 @@
       "2" : {
         "label" : "Les bases",
         "title" : "Restez hors ligne",
-        "desc" : "Achetez, vendez, gérez, échangez et gagnez des cryptos en toute sécurité sur Ledger Live. Vous devez valider chaque transaction de vos cryptos avec votre Nano."
+        "desc" : "Achetez, vendez, gérez, échangez et gagnez des cryptos en toute sécurité sur Ledger Live. Vous devez valider chaque transaction en cryptos avec votre Nano."
       },
       "3" : {
         "label" : "Les bases",
@@ -1216,7 +1217,7 @@
         "nextStep" : "Étape suivante"
       },
       "hideRecoveryPhrase" : {
-        "title" : "Cacher votre phrase de récupération",
+        "title" : "Cachez votre phrase de récupération",
         "desc" : "Votre phrase de récupération est votre seule façon d’accéder à vos cryptos si vous ne pouvez plus utiliser votre Nano. La garder en lieu sûr est crucial.",
         "bullets" : {
           "0" : {
@@ -2055,8 +2056,8 @@
       "privacyPolicy" : "Politique de confidentialité",
       "privacyPolicyDesc" : "Découvrez les données personnelles que nous collectons, à quelles fins et comment nous les utilisons.",
       "liveReview" : {
-        "title" : "Commentaires",
-        "desc" : "Faites-nous part de vos commentaires sur l’app",
+        "title" : "Avis",
+        "desc" : "Faites-nous part de vos commentaires sur l’app.",
         "ios" : "Donnez votre avis dans l’App Store",
         "android" : "Donnez votre avis dans le Google Play Store"
       }
@@ -2157,7 +2158,7 @@
       "verifyAgain" : "Revérifier",
       "noAccount" : "Aucun compte trouvé",
       "address" : "Adresse du compte",
-      "copyAddress" : "Copier l’adresse",
+      "copyAddress" : "Copier",
       "shareAddress" : "Partager l’adresse",
       "addressCopied" : "Adresse copiée",
       "taprootWarning" : "Vérifiez que l’émetteur prend en charge Taproot",
@@ -3378,6 +3379,13 @@
             "broadcastError" : "Échec probable de votre transaction. Patientez un instant puis vérifiez l’historique des transactions avant de réessayer."
           }
         }
+      }
+    }
+  },
+  "cardano" : {
+    "info" : {
+      "balanceDoesNotIncludeRewards" : {
+        "title" : "Le solde total ne comprend pas les récompenses de staking"
       }
     }
   },
