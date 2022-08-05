@@ -81,7 +81,8 @@
     "seeMore" : "Daha fazla gör",
     "moreInfo" : "Daha fazla bilgi",
     "buyEth" : "Ethereum Satın Al",
-    "popular" : "popüler"
+    "popular" : "popüler",
+    "comingSoon" : "Çok yakında"
   },
   "errors" : {
     "countervaluesUnavailable" : {
@@ -930,9 +931,9 @@
         "title" : "Kazanın",
         "desc" : "Pasif gelir elde edin ve kripto varlıklarınızı artırın"
       },
-      "mint": {
-        "title": "Mintleyin",
-        "desc": "[ L ] Market’teki özel iş birlikleri kapsamında NFT’ler mintleyin"
+      "mint" : {
+        "title" : "Mintleyin",
+        "desc" : "[ L ] Market'teki özel iş birliklerini kullanarak NFT'ler mintleyin"
       }
     },
     "comingSoon" : "Çok yakında",
@@ -2061,6 +2062,36 @@
         "android" : "Google Play mağazasında değerlendir"
       }
     },
+    "notifications" : {
+      "title" : "Bildirimler",
+      "desc" : "Bildirimlerinizi yönetin",
+      "disabledNotifications" : {
+        "title" : "Bildirimleriniz kapalı",
+        "desc" : "{{platform}}, Ledger Live bildirimlerini engelliyor. Telefonunuza bildirim almak için cihazınızın ayarlar bölümüne gidip Ledger Live bildirimlerini açın.",
+        "turnOnNotif" : "Bildirimleri aç",
+        "goToSettings" : "Sistem ayarlarına git"
+      },
+      "allowed" : {
+        "title" : "Bildirimlere izin ver",
+        "desc" : "Kriptolarınız, piyasa eğilimleri ve diğer şeylerle ilgili bildirim alın"
+      },
+      "transactions" : {
+        "title" : "İşlemler",
+        "desc" : "Kripto aldığınızda ya da gönderdiğinizde bildirim alın"
+      },
+      "market" : {
+        "title" : "Piyasa",
+        "desc" : "Önemli piyasa değişikliklerinden haberdar olun"
+      },
+      "announcement" : {
+        "title" : "Duyurular",
+        "desc" : "Önemli Ledger Live haberlerini alın"
+      },
+      "price" : {
+        "title" : "Fiyat Uyarıları",
+        "desc" : "En çok tercih ettiğiniz coin'ler için fiyat uyarıları belirleyerek piyasa hareketlerini kaçırmayın"
+      }
+    },
     "help" : {
       "title" : "Yardım",
       "header" : "Yardım",
@@ -2092,6 +2123,14 @@
       "customManifest" : {
         "title" : "Özel Platform Manifest Dosyası Yükle"
       }
+    }
+  },
+  "notifications" : {
+    "prompt" : {
+      "title" : "Bildirimleri aç",
+      "desc" : "Ledger Live, Ledger ürünleri ve güvenlik ile ilgili önemli gelişmeleri öğrenin. İstediğiniz zaman devre dışı bırakabilirsiniz.",
+      "allow" : "Bildirimlere izin ver",
+      "later" : "Belki sonra"
     }
   },
   "migrateAccounts" : {
@@ -3378,6 +3417,13 @@
             "broadcastError" : "İşleminiz başarısız olmuş olabilir. Tekrar denemeden önce, işleminizin gerçekleşmediğinden emin olmak için birkaç dakika sonra yeniden kontrol edin."
           }
         }
+      }
+    }
+  },
+  "cardano" : {
+    "info" : {
+      "balanceDoesNotIncludeRewards" : {
+        "title" : "Staking ödülleri toplam bakiyeye dahil edilmez"
       }
     }
   },
