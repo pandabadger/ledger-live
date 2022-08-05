@@ -81,7 +81,8 @@
     "seeMore" : "Mehr anzeigen",
     "moreInfo" : "Mehr Infos",
     "buyEth" : "Ethereum kaufen",
-    "popular" : "beliebt"
+    "popular" : "beliebt",
+    "comingSoon" : "In Kürze verfügbar"
   },
   "errors" : {
     "countervaluesUnavailable" : {
@@ -930,9 +931,9 @@
         "title" : "Verdienen",
         "desc" : "Verdienen Sie ein passives Einkommen und vermehren Sie Ihr Kryptovermögen"
       },
-      "mint": {
-        "title": "Minting",
-        "desc": "Minte NFTs von exklusiven Kollaborationen auf [ L ] Market"
+      "mint" : {
+        "title" : "Mint",
+        "desc" : "Mint NFTs aus exklusiven Kooperationen auf dem [ L ] Markt"
       }
     },
     "comingSoon" : "In Kürze verfügbar",
@@ -2061,6 +2062,36 @@
         "android" : "Im Google Play Store bewerten"
       }
     },
+    "notifications" : {
+      "title" : "Benachrichtigungen",
+      "desc" : "Benachrichtigungen verwalten",
+      "disabledNotifications" : {
+        "title" : "Ihre Benachrichtigungen sind deaktiviert",
+        "desc" : "{{platform}} blockiert Benachrichtigungen von Ledger Live. Um Benachrichtigungen auf Ihrem Smartphone zu erhalten, gehen Sie zu den Einstellungen Ihres Geräts, um Benachrichtigungen von Ledger Live zu aktivieren.",
+        "turnOnNotif" : "Benachrichtigungen aktivieren",
+        "goToSettings" : "Gehen Sie zu Systemeinstellungen"
+      },
+      "allowed" : {
+        "title" : "Benachrichtigungen zulassen",
+        "desc" : "Erhalten Sie Benachrichtigungen über Ihre Krypto, Markttendenzen und mehr"
+      },
+      "transactions" : {
+        "title" : "Transaktionen",
+        "desc" : "Werden Sie benachrichtigt, wenn Sie Krypto empfangen oder senden"
+      },
+      "market" : {
+        "title" : "Markt",
+        "desc" : "Erhalten Sie wichtige Updates zu Marktveränderungen"
+      },
+      "announcement" : {
+        "title" : "Ankündigung",
+        "desc" : "Wichtige Updates zu Ledger Live erhalten"
+      },
+      "price" : {
+        "title" : "Preisalarme",
+        "desc" : "Legen Sie Preisalarme für Ihre Lieblingscoins fest, damit Sie keine Marktbewegung verpassen"
+      }
+    },
     "help" : {
       "title" : "Hilfe",
       "header" : "Hilfe",
@@ -2092,6 +2123,14 @@
       "customManifest" : {
         "title" : "Benutzerdefiniertes Plattform-Manifest laden"
       }
+    }
+  },
+  "notifications" : {
+    "prompt" : {
+      "title" : "Benachrichtigungen aktivieren",
+      "desc" : "Erhalten Sie wichtige Updates zu Ledger Live, Ledger Produkten und Sicherheit. Abmeldung jederzeit möglich.",
+      "allow" : "Benachrichtigungen zulassen",
+      "later" : "Vielleicht später"
     }
   },
   "migrateAccounts" : {
@@ -3378,6 +3417,13 @@
             "broadcastError" : "Ihre Transaktion ist möglicherweise fehlgeschlagen. Bitte schauen Sie in ein paar Minuten noch einmal nach, um sicherzustellen, dass Ihre Transaktion nicht fehlgeschlagen ist, bevor Sie es erneut versuchen."
           }
         }
+      }
+    }
+  },
+  "cardano" : {
+    "info" : {
+      "balanceDoesNotIncludeRewards" : {
+        "title" : "Der Gesamtkontostand enthält keine Stakingprämien"
       }
     }
   },
