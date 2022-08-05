@@ -81,7 +81,8 @@
     "seeMore" : "查看更多",
     "moreInfo" : "更多信息",
     "buyEth" : "购买以太坊",
-    "popular" : "热门"
+    "popular" : "热门",
+    "comingSoon" : "敬请期待"
   },
   "errors" : {
     "countervaluesUnavailable" : {
@@ -930,9 +931,9 @@
         "title" : "赚取",
         "desc" : "赚取被动收入并增长加密资产"
       },
-      "mint": {
-        "title": "铸造",
-        "desc": "通过 [ L ] Market 市场上的独家合作来铸造 NFT"
+      "mint" : {
+        "title" : "铸造",
+        "desc" : "通过 [ L ] 市场上的独家合作来铸造 NFT"
       }
     },
     "comingSoon" : "敬请期待",
@@ -2061,6 +2062,36 @@
         "android" : "在 Google Play（谷歌应用商店）内评论"
       }
     },
+    "notifications" : {
+      "title" : "通知",
+      "desc" : "管理通知",
+      "disabledNotifications" : {
+        "title" : "您已禁用通知",
+        "desc" : "{{platform}} 阻止了 Ledger Live 发送的通知。要在手机上获得通知，请在手机的设置中开启 Ledger Live 通知。",
+        "turnOnNotif" : "开启通知",
+        "goToSettings" : "前往系统设置"
+      },
+      "allowed" : {
+        "title" : "允许通知",
+        "desc" : "接收关于加密货币、市场趋势等内容的通知"
+      },
+      "transactions" : {
+        "title" : "交易",
+        "desc" : "接收或发送加密货币时获得通知"
+      },
+      "market" : {
+        "title" : "市场",
+        "desc" : "接收重大市场变化动态"
+      },
+      "announcement" : {
+        "title" : "公告",
+        "desc" : "接收重要 Ledger Live 更新"
+      },
+      "price" : {
+        "title" : "价格提醒",
+        "desc" : "为您收藏的币种设置价格提醒，以免错过市场波动"
+      }
+    },
     "help" : {
       "title" : "帮助",
       "header" : "帮助",
@@ -2092,6 +2123,14 @@
       "customManifest" : {
         "title" : "加载自定义平台清单"
       }
+    }
+  },
+  "notifications" : {
+    "prompt" : {
+      "title" : "打开通知",
+      "desc" : "获取关于 Ledger Live、Ledger 产品和安全性的重要动态。您可随时决定退出。",
+      "allow" : "允许通知",
+      "later" : "以后再说"
     }
   },
   "migrateAccounts" : {
@@ -3378,6 +3417,13 @@
             "broadcastError" : "您的交易可能已失败。请等待几分钟后再次查看，如果确认交易未成功，则再次尝试。"
           }
         }
+      }
+    }
+  },
+  "cardano" : {
+    "info" : {
+      "balanceDoesNotIncludeRewards" : {
+        "title" : "总余额不包括权益质押奖励"
       }
     }
   },
