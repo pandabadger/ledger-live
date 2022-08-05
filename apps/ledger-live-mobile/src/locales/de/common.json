@@ -820,8 +820,8 @@
   },
   "ratings" : {
     "init" : {
-      "title" : "Wie gefällt Ihnen Ledger Live?",
-      "description" : "Sind Sie zufrieden oder haben Sie mehr von uns erwartet? In beiden Fällen freuen wir uns über Ihr Feedback.",
+      "title" : "Wie gefällt Ihnen unsere App?",
+      "description" : "Ihr Feedback ist uns wichtig, um Ledger Live zu verbessern.",
       "cta" : {
         "enjoy" : "Ich bin begeistert",
         "disappointed" : "Ich bin enttäuscht",
@@ -838,7 +838,8 @@
     },
     "disappointed" : {
       "title" : "Helfen Sie uns, das Produkt für Sie noch besser zu machen",
-      "description" : "Mit Ihrem ehrlichen Feedback unterstützen Sie uns dabei, Bereiche mit Optimierungsbedarf zu identifizieren.",
+      "description" : "Wenn Sie weitere Hilfe benötigen oder möchten, dass wir uns mit Ihnen in Verbindung setzen, nutzen Sie bitte unseren Live-Chat",
+      "here" : "Hier",
       "cta" : {
         "sendFeedback" : "Feedback senden",
         "notNow" : "Nicht jetzt"
@@ -930,9 +931,9 @@
         "title" : "Verdienen",
         "desc" : "Verdienen Sie ein passives Einkommen und vermehren Sie Ihr Kryptovermögen"
       },
-      "mint": {
-        "title": "Minting",
-        "desc": "Minte NFTs von exklusiven Kollaborationen auf [ L ] Market"
+      "mint" : {
+        "title" : "Mint",
+        "desc" : "Mint NFTs aus exklusiven Kooperationen auf dem [ L ] Markt"
       }
     },
     "comingSoon" : "In Kürze verfügbar",
@@ -3378,6 +3379,13 @@
             "broadcastError" : "Ihre Transaktion ist möglicherweise fehlgeschlagen. Bitte schauen Sie in ein paar Minuten noch einmal nach, um sicherzustellen, dass Ihre Transaktion nicht fehlgeschlagen ist, bevor Sie es erneut versuchen."
           }
         }
+      }
+    }
+  },
+  "cardano" : {
+    "info" : {
+      "balanceDoesNotIncludeRewards" : {
+        "title" : "Der Gesamtkontostand enthält keine Stakingprämien"
       }
     }
   },
