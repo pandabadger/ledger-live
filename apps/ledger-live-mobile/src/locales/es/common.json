@@ -81,7 +81,8 @@
     "seeMore" : "Ver más",
     "moreInfo" : "Más información",
     "buyEth" : "Comprar Ethereum",
-    "popular" : "popular"
+    "popular" : "popular",
+    "comingSoon" : "Próximamente"
   },
   "errors" : {
     "countervaluesUnavailable" : {
@@ -930,9 +931,9 @@
         "title" : "Gana",
         "desc" : "Gana ingresos pasivos y haz crecer tus activos cripto"
       },
-      "mint": {
-        "title": "Acuñar",
-        "desc": "Acuña NFTs de colaboraciones exclusivas en [ L ] Market"
+      "mint" : {
+        "title" : "Acuñar",
+        "desc" : "Acuña NFTs de colaboraciones exclusivas en [ L ] Market"
       }
     },
     "comingSoon" : "próximamente",
@@ -2061,6 +2062,36 @@
         "android" : "Reseñar en Google Play Store"
       }
     },
+    "notifications" : {
+      "title" : "Notificaciones",
+      "desc" : "Gestiona tus notificaciones",
+      "disabledNotifications" : {
+        "title" : "Tienes las notificaciones desactivadas",
+        "desc" : "{{platform}} está bloqueando las notificaciones de Ledger Live. Para recibir las notificaciones en tu teléfono, ve a los ajustes de tu dispositivo y activa las notificaciones de Ledger Live.",
+        "turnOnNotif" : "Activar notificaciones",
+        "goToSettings" : "Ir a los ajustes del sistema"
+      },
+      "allowed" : {
+        "title" : "Permitir notificaciones",
+        "desc" : "Recibe notificaciones sobre tus cripto, las tendencias del mercado y mucho más."
+      },
+      "transactions" : {
+        "title" : "Transacciones",
+        "desc" : "Recibe notificaciones cuando envíes o recibas cripto."
+      },
+      "market" : {
+        "title" : "Mercado",
+        "desc" : "Recibe novedades de cambios significativos del mercado"
+      },
+      "announcement" : {
+        "title" : "Anuncios",
+        "desc" : "Recibe novedades importantes sobre Ledger Live"
+      },
+      "price" : {
+        "title" : "Alertas de precios",
+        "desc" : "Define alertas de precio para tus monedas favoritas y no te perderás ni un movimiento del mercado"
+      }
+    },
     "help" : {
       "title" : "Ayuda",
       "header" : "Ayuda",
@@ -2092,6 +2123,14 @@
       "customManifest" : {
         "title" : "Cargar manifiesto de plataforma personalizada"
       }
+    }
+  },
+  "notifications" : {
+    "prompt" : {
+      "title" : "Activar las notificaciones",
+      "desc" : "Recibe las novedades importantes sobre Ledger Live y los productos y la seguridad de Ledger. Puedes cancelar la suscripción en cualquier momento.",
+      "allow" : "Permitir notificaciones",
+      "later" : "Quizás más tarde"
     }
   },
   "migrateAccounts" : {
@@ -3378,6 +3417,13 @@
             "broadcastError" : "Es posible que la transacción haya fallado. Vuelve a comprobarlo en unos minutos para asegurarte de que no se haya realizado la transacción antes de intentarlo de nuevo."
           }
         }
+      }
+    }
+  },
+  "cardano" : {
+    "info" : {
+      "balanceDoesNotIncludeRewards" : {
+        "title" : "El saldo total no incluye las recompensas de participación"
       }
     }
   },
