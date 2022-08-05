@@ -820,8 +820,8 @@
   },
   "ratings" : {
     "init" : {
-      "title" : "¿Te gusta Ledger Live?",
-      "description" : "Ya sea para decirnos que te gusta o que hay algo que podríamos mejorar, valoramos mucho tus comentarios.",
+      "title" : "¿Qué te parece nuestra aplicación?",
+      "description" : "Tus comentarios son importantes para mejorar Ledger Live.",
       "cta" : {
         "enjoy" : "Es genial",
         "disappointed" : "Me ha decepcionado",
@@ -838,7 +838,8 @@
     },
     "disappointed" : {
       "title" : "Ayúdanos a construir un producto mejor para ti",
-      "description" : "Siempre queremos mejorar, y las reseñas honestas nos ayudan mucho a saber cómo.",
+      "description" : "Si necesitas más ayuda o quieres que nos pongamos en contacto contigo, usa nuestro chat",
+      "here" : "aquí",
       "cta" : {
         "sendFeedback" : "Enviar comentarios",
         "notNow" : "Ahora no"
@@ -930,9 +931,9 @@
         "title" : "Gana",
         "desc" : "Gana ingresos pasivos y haz crecer tus activos cripto"
       },
-      "mint": {
-        "title": "Acuñar",
-        "desc": "Acuña NFTs de colaboraciones exclusivas en [ L ] Market"
+      "mint" : {
+        "title" : "Acuñar",
+        "desc" : "Acuña NFTs de colaboraciones exclusivas en [ L ] Market"
       }
     },
     "comingSoon" : "próximamente",
@@ -3378,6 +3379,13 @@
             "broadcastError" : "Es posible que la transacción haya fallado. Vuelve a comprobarlo en unos minutos para asegurarte de que no se haya realizado la transacción antes de intentarlo de nuevo."
           }
         }
+      }
+    }
+  },
+  "cardano" : {
+    "info" : {
+      "balanceDoesNotIncludeRewards" : {
+        "title" : "El saldo total no incluye las recompensas de participación"
       }
     }
   },
