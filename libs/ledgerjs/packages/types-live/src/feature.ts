@@ -8,6 +8,7 @@ export type FeatureId =
   | "buyDeviceFromLive"
   | "ptxSmartRouting"
   | "ptxSmartRoutingMobile"
+  | "walletConnectLiveApp"
   | string;
 
 /**  We use objects instead of direct booleans for potential future improvements

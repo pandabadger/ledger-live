@@ -38,9 +38,12 @@ const ScanWalletConnect = ({ navigation, route }: Props) => {
       return;
     }
     connect(uri);
-    navigation.replace(ScreenName.WalletConnectConnect, {
-      uri,
-      accountId: route.params.accountId,
+    navigation.replace(NavigatorName.WalletConnect, {
+      screen: ScreenName.WalletConnectConnect,
+      params: {
+        uri,
+        accountId: route.params.accountId,
+      },
     });
   };
 
