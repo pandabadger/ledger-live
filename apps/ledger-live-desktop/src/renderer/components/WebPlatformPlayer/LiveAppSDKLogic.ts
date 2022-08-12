@@ -27,6 +27,7 @@ import {
   RawPlatformSignedTransaction,
 } from "@ledgerhq/live-common/platform/rawTypes";
 import { ToastData } from "@ledgerhq/live-common/notifications/ToastProvider/types";
+import { TypedMessageData } from "@ledgerhq/live-common/families/ethereum/types";
 
 import { updateAccountWithUpdater } from "../../actions/accounts";
 import { openModal } from "../../actions/modals";
@@ -344,7 +345,7 @@ export const signMessageLogic = (
     return Promise.reject(new Error("account not found"));
   }
 
-  let formattedMessage: MessageData | null;
+  let formattedMessage: MessageData | TypedMessageData;
   try {
     if (isAccount(account)) {
       formattedMessage = prepareMessageToSign(account, message);
