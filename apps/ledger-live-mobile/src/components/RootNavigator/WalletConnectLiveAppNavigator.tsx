@@ -43,7 +43,7 @@ export default function WalletConnectLiveAppNavigator({ route }: any) {
               ..._props.route,
               params: {
                 platform,
-                scan: true,
+                mode: "scan",
                 account: _props.route.params?.accountId,
                 uri: _props.route.params?.uri,
               },
