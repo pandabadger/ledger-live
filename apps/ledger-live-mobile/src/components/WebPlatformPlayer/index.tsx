@@ -47,7 +47,7 @@ import {
   serializePlatformSignedTransaction,
   deserializePlatformSignedTransaction,
 } from "@ledgerhq/live-common/platform/serializers";
-import { prepareMessageToSign } from "@ledgerhq/live-common/lib/hw/signMessage";
+import { prepareMessageToSign } from "@ledgerhq/live-common/hw/signMessage/index";
 import {
   useListPlatformAccounts,
   useListPlatformCurrencies,
