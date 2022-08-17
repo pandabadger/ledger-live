@@ -708,6 +708,8 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
       <WebView
         ref={targetRef}
         startInLoadingState={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
         renderLoading={() => (
           <View style={styles.center}>
             <ActivityIndicator size="large" />
@@ -721,6 +723,8 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
         onLoad={handleLoad}
         onMessage={handleMessage}
         onError={handleError}
+        overScrollMode="content"
+        bounces={false}
         mediaPlaybackRequiresUserAction={false}
         scalesPageToFitmediaPlaybackRequiresUserAction
         automaticallyAdjustContentInsets={false}
