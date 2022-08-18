@@ -2,7 +2,7 @@ import { DeviceModelId, getDeviceModel } from "@ledgerhq/devices/lib/index";
 import {
   PostOnboardingAction,
   PostOnboardingActionId,
-} from "@ledgerhq/live-common/lib/postOnboarding/types";
+} from "@ledgerhq/types-live/lib/postOnboarding";
 import { Icons } from "@ledgerhq/native-ui";
 import { NavigatorName, ScreenName } from "../../const";
 

@@ -1,10 +1,11 @@
-import { DeviceModelId } from "@ledgerhq/devices/lib/index";
-import { FeatureId } from "@ledgerhq/types-live";
+import { DeviceModelId } from "@ledgerhq/types-devices";
+import { FeatureId } from ".";
 
 export enum PostOnboardingActionId {
   claimMock = "claimMock",
   migrateAssetsMock = "migrateAssetsMock",
   personalizeMock = "personalizeMock",
+  myPostOnboardingAction = "myPostOnboardingAction",
 }
 
 export type PostOnboardingAction = {
@@ -28,7 +29,7 @@ export type PostOnboardingAction = {
   /**
    * Icon displayed for this action in the post onboarding hub.
    */
-  icon: React.ComponentType<{ size: number; color: string }>;
+  icon: (props: { size: number; color: string }) => any;
 
   /**
    * Title displayed for this action in the post onboarding hub.

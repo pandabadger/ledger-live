@@ -2,7 +2,7 @@ import { DeviceModelId } from "@ledgerhq/devices/lib/";
 import {
   PostOnboardingActionId,
   PostOnboardingState,
-} from "@ledgerhq/live-common/lib/postOnboarding/types";
+} from "@ledgerhq/types-live";
 import { handleActions } from "redux-actions";
 
 const initialState: PostOnboardingState = {
@@ -32,7 +32,7 @@ const handlers: Record<
     if (actionsIds.length === 0) return initialState;
     return {
       deviceModelId,
-      walletEntryPointVisible: false,
+      walletEntryPointDismissed: false,
       actionsToComplete: actionsIds,
       actionsCompleted: Object.fromEntries(actionsIds.map(id => [id, false])),
       lastActionCompleted: null,

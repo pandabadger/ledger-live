@@ -5,7 +5,7 @@ import { DeviceModelId } from "@ledgerhq/devices/lib/index";
 import {
   PostOnboardingActionId,
   PostOnboardingHubState,
-} from "@ledgerhq/live-common/lib/postOnboarding/types";
+} from "@ledgerhq/types-live";
 import { useFeatureFlags } from "@ledgerhq/live-common/lib/featureFlags/index";
 import { getPostOnboardingAction, getPostOnboardingActionsForDevice } from ".";
 import {
@@ -20,7 +20,6 @@ import {
   setPostOnboardingActionCompleted,
 } from "../../actions/postOnboarding";
 import { NavigatorName, ScreenName } from "../../const";
-import { Alert } from "react-native";
 
 /**
  * @returns an object representing the state that should be rendered on the post

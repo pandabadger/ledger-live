@@ -1,8 +1,8 @@
-import { DeviceModelId } from "@ledgerhq/devices/lib/index";
+import { DeviceModelId } from "@ledgerhq/devices/lib/";
 import {
   PostOnboardingActionId,
   PostOnboardingState,
-} from "@ledgerhq/live-common/lib/postOnboarding/types";
+} from "@ledgerhq/types-live";
 
 export const importPostOnboardingState = (state: PostOnboardingState) => ({
   type: "POST_ONBOARDING_IMPORT_STATE",

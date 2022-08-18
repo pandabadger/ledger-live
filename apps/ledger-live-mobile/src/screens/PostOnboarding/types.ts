@@ -1,4 +1,4 @@
-import { PostOnboardingActionId } from "@ledgerhq/live-common/lib/postOnboarding/types";
+import { PostOnboardingActionId } from "@ledgerhq/types-live";
 import { ScreenName } from "../../const";
 
 export type ParamList = {
