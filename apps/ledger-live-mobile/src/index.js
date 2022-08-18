@@ -45,6 +45,7 @@ import {
 } from "@ledgerhq/live-common/platform/providers/RemoteLiveAppProvider/index";
 import { LocalLiveAppProvider } from "@ledgerhq/live-common/platform/providers/LocalLiveAppProvider/index";
 
+import { isEqual } from "lodash";
 import logger from "./logger";
 import {
   saveAccounts,
@@ -110,7 +111,6 @@ import AdjustProvider from "./components/AdjustProvider";
 import DelayedTrackingProvider from "./components/DelayedTrackingProvider";
 import { useFilteredManifests } from "./screens/Platform/shared";
 import { postOnboardingSelector } from "./reducers/postOnboarding";
-import { isEqual } from "lodash";
 
 const themes = {
   light: lightTheme,
