@@ -52,7 +52,6 @@ setSupportedCurrencies([
   "arbitrum",
   "avalanche",
   "fantom",
-  "evmos",
   "moonbeam",
 ]);
 
