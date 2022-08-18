@@ -8,7 +8,7 @@ import { NavigatorName, ScreenName } from "../../const";
 
 const claimMock: PostOnboardingAction = {
   id: PostOnboardingActionId.claimMock,
-  icon: Icons.GiftCardMedium,
+  Icon: Icons.GiftCardMedium,
   title: "Claim my NFT",
   description: "A special NFT for you.",
   tagLabel: "Free",
@@ -28,7 +28,7 @@ const claimMock: PostOnboardingAction = {
 
 const personalizeMock: PostOnboardingAction = {
   id: PostOnboardingActionId.personalizeMock,
-  icon: Icons.BracketsMedium,
+  Icon: Icons.BracketsMedium,
   featureFlagId: "customImage",
   title: `Personalize my ${getDeviceModel(DeviceModelId.nanoFTS).productName}`,
   description: "By customizing the screen.",
@@ -48,7 +48,7 @@ const personalizeMock: PostOnboardingAction = {
 
 const migrateAssetsMock: PostOnboardingAction = {
   id: PostOnboardingActionId.migrateAssetsMock,
-  icon: Icons.TransferMedium,
+  Icon: Icons.TransferMedium,
   title: "Transfer assets to my Ledger",
   description: "Easily secure assets from coinbase or another exchange.",
   actionCompletedPopupLabel: "Assets transfered",

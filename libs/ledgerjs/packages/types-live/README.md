@@ -139,7 +139,7 @@ Ledger Live main types.
     *   [Properties](#properties-44)
     *   [featureFlagId](#featureflagid)
     *   [navigationParams](#navigationparams)
-    *   [icon](#icon)
+    *   [Icon](#icon)
     *   [title](#title)
     *   [description](#description)
     *   [tagLabel](#taglabel)
@@ -1072,14 +1072,14 @@ Unique identifier of a post onboarding action.
 All necessary information for complete integration of a post onboarding
 action.
 
-Type: {id: [PostOnboardingActionId](#postonboardingactionid), featureFlagId: [FeatureId](#featureid)?, navigationParams: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>?, icon: function (props: {size: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), color: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)}): any, title: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), description: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), tagLabel: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?, actionCompletedPopupLabel: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), actionCompletedHubTitle: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), onStartEvent: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?, onStartEventProperties: any?}
+Type: {id: [PostOnboardingActionId](#postonboardingactionid), featureFlagId: [FeatureId](#featureid)?, navigationParams: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>?, Icon: function (props: {size: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), color: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)}): any, title: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), description: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), tagLabel: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?, actionCompletedPopupLabel: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), actionCompletedHubTitle: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), onStartEvent: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?, onStartEventProperties: any?}
 
 #### Properties
 
 *   `id` **[PostOnboardingActionId](#postonboardingactionid)** 
 *   `featureFlagId` **[FeatureId](#featureid)?** 
 *   `navigationParams` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>?** 
-*   `icon` **function (props: {size: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), color: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)}): any** 
+*   `Icon` **function (props: {size: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), color: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)}): any** 
 *   `title` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 *   `description` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 *   `tagLabel` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
@@ -1106,7 +1106,7 @@ Navigation params when the user presses the button for this action
 
 Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>
 
-#### icon
+#### Icon
 
 Icon displayed for this action in the post onboarding hub.
 

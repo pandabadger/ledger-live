@@ -14,7 +14,7 @@ export type Props = PostOnboardingAction & PostOnboardingActionState;
 const PostOnboardingActionRow: React.FC<Props> = props => {
   const {
     navigationParams,
-    icon: Icon,
+    Icon,
     title,
     description,
     tagLabel,
