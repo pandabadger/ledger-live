@@ -1,10 +1,17 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Box, Flex, Icons, Log, Notification, Text } from "@ledgerhq/native-ui";
+import {
+  Divider,
+  Flex,
+  Icons,
+  Log,
+  Notification,
+  Text,
+} from "@ledgerhq/native-ui";
 import { useTranslation } from "react-i18next";
 import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useFocusEffect } from "@react-navigation/native";
 import Animated, {
   interpolate,
   runOnJS,
@@ -27,12 +34,6 @@ const SafeContainer = styled(SafeAreaView).attrs({
 })`
   flex: 1;
 `;
-
-const Divider = styled(Box).attrs({
-  height: 0.5,
-  backgroundColor: "neutral.c30",
-  width: "100%",
-})``;
 
 const AnimatedFlex = Animated.createAnimatedComponent(Flex);
 

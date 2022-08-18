@@ -37,7 +37,7 @@ const PostOnboardingActionRow: React.FC<Props> = props => {
       <Flex
         flexDirection="row"
         alignItems="center"
-        py={7}
+        py={6}
         justifyContent="space-between"
       >
         <Flex flexDirection="row" alignItems="center" flexShrink={1}>
