@@ -1,12 +1,14 @@
 // @flow
 /* eslint import/no-cycle: 0 */
 import { combineReducers } from "redux";
+import { PostOnboardingState } from "@ledgerhq/live-common/lib/postOnboarding/types";
 import accounts from "./accounts";
 import settings from "./settings";
 import appstate from "./appstate";
 import ble from "./ble";
 import ratings from "./ratings";
 import notifications from "./notifications";
+import postOnboarding from "./postOnboarding";
 import type { AccountsState } from "./accounts";
 import type { SettingsState } from "./settings";
 import type { AppState } from "./appstate";
@@ -21,6 +23,7 @@ export type State = {
   ble: BleState,
   ratings: RatingsState,
   notifications: NotificationsState,
+  postOnboarding: PostOnboardingState,
 };
 
 // $FlowFixMe
@@ -31,6 +34,7 @@ const appReducer = combineReducers({
   ble,
   ratings,
   notifications,
+  postOnboarding,
 });
 
 const rootReducer = (state: State, action: *) => {

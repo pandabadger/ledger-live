@@ -383,6 +383,10 @@ export const ScreenName = {
 
   // hedera
   HederaEditMemo: "HederaEditMemo",
+
+  PostOnboardingHub: "PostOnboardingHub",
+  PostOnboardingDebugScreen: "PostOnboardingDebugScreen",
+  PostOnboardingMockActionScreen: "PostOnboardingMockActionScreen",
 };
 
 export const NavigatorName = {
@@ -461,4 +465,6 @@ export const NavigatorName = {
   // Root
   RootNavigator: "RootNavigator",
   Discover: "Discover",
+
+  PostOnboarding: "PostOnboarding",
 };

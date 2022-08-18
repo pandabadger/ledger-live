@@ -13,6 +13,8 @@ import StepLottieAnimation from "./setupDevice/scenes/StepLottieAnimation";
 import { completeOnboarding } from "../../../actions/settings";
 import { useNavigationInterceptor } from "../onboardingContext";
 import useNotifications from "../../../logic/notifications";
+import { useStartPostOnboardingCallback } from "../../../logic/postOnboarding/hooks";
+import { DeviceModelId } from "@ledgerhq/devices/lib/";
 
 const images = {
   light: {
@@ -89,6 +91,10 @@ function OnboardingStepPairNew() {
     [deviceModelId, theme],
   );
 
+  const startPostOnboarding = useStartPostOnboardingCallback(
+    deviceModelId as DeviceModelId,
+  );
+
   const onFinish = useCallback(() => {
     dispatch(completeOnboarding());
     resetCurrentStep();
@@ -102,12 +108,15 @@ function OnboardingStepPairNew() {
       screen: NavigatorName.Main,
     });
 
+    startPostOnboarding();
+
     triggerJustFinishedOnboardingNewDevicePushNotificationModal();
   }, [
     dispatch,
     navigation,
     resetCurrentStep,
     triggerJustFinishedOnboardingNewDevicePushNotificationModal,
+    startPostOnboarding,
   ]);
 
   const nextPage = useCallback(() => {
