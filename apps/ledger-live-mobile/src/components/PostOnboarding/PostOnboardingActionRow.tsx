@@ -62,11 +62,11 @@ const PostOnboardingActionRow: React.FC<Props> = props => {
           flexGrow={1}
           pl={6}
         >
-          {tagLabel && (
+          {tagLabel ? (
             <Tag mr={6} size="medium" type="color" uppercase={false}>
               {tagLabel}
             </Tag>
-          )}
+          ) : null}
           {completed ? (
             <Icons.CheckAloneMedium color="success.c100" size={16} />
           ) : (
