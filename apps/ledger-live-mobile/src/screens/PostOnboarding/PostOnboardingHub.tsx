@@ -126,7 +126,7 @@ const PostOnboardingHub: React.FC<StackScreenProps<{}>> = ({ navigation }) => {
   return (
     <SafeContainer>
       <Flex px={6} py={7} justifyContent="space-between" flex={1}>
-        <Text variant="h1Inter" fontWeight="semiBold" mb="34px">
+        <Text variant="h1Inter" fontWeight="semiBold" mb={8}>
           {allDone
             ? t("postOnboarding.hub.allDoneTitle")
             : actionCompletedHubTitle
