@@ -94,6 +94,8 @@ export function getPostOnboardingAction(
 
 /**
  * Returns the list of post onboarding actions for a given device.
+ * TODO: keep this updated as we implement feature that we want to add in the
+ * post onboarding.
  */
 export function getPostOnboardingActionsForDevice(
   deviceModelId: DeviceModelId,

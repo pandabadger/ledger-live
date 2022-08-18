@@ -46,14 +46,12 @@ const PostOnboardingHub: React.FC<StackScreenProps<{}>> = ({ navigation }) => {
   const clearLastActionCompleted = useClearLastActionCompletedCallback();
 
   useEffect(
-    () => () => {
-      /**
-       * The last action context (specific title & popup) should only be visible
-       * the 1st time the hub is navigated to after that action was completed.
-       * So here we clear the last action completed.
-       * */
-      clearLastActionCompleted();
-    },
+    /**
+     * The last action context (specific title & popup) should only be visible
+     * the 1st time the hub is navigated to after that action was completed.
+     * So here we clear the last action completed.
+     * */
+    () => clearLastActionCompleted,
     [clearLastActionCompleted],
   );
 
@@ -82,7 +80,7 @@ const PostOnboardingHub: React.FC<StackScreenProps<{}>> = ({ navigation }) => {
 
   const triggerEndAnimation = useCallback(() => {
     let dead = false;
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     const onAnimEnd = () => {
       timeout = setTimeout(() => {
         navigateToMainScreen();
