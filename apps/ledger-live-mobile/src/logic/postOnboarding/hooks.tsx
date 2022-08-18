@@ -28,6 +28,7 @@ import { NavigatorName, ScreenName } from "../../const";
  * This takes feature flagging into account so the logic is
  * resistant to flags getting enabled/disabled over time (for a given disabled
  * feature flag, the actions pointing to it will be excluded).
+ * TODO: unit test this
  * */
 export function usePostOnboardingHubState(): PostOnboardingHubState {
   const hubState = useSelector(hubStateSelector);
@@ -58,6 +59,7 @@ export function usePostOnboardingHubState(): PostOnboardingHubState {
  *
  * @returns a boolean representing whether all the post onboarding actions have
  * been completed.
+ * TODO: unit test this
  */
 export function useAllPostOnboardingActionsCompleted(): boolean {
   const { actionsState } = usePostOnboardingHubState();
@@ -68,6 +70,7 @@ export function useAllPostOnboardingActionsCompleted(): boolean {
  *
  * @returns a boolean representing whether the post onboarding entry point
  * should be visible on the wallet page.
+ * TODO: unit test this
  */
 export function usePostOnboardingEntryPointVisibleOnWallet(): boolean {
   const dismissed = useSelector(
@@ -107,6 +110,7 @@ export function useNavigateToPostOnboardingHubCallback() {
  * @returns a function that can be called to initialize the post
  * onboarding for the given device model and navigate to the post onboarding
  * hub.
+ * TODO: unit test this
  */
 export function useStartPostOnboardingCallback(
   deviceModelId: DeviceModelId,
