@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigation } from "@react-navigation/native";
 import { ActionState, PostOnboardingAction } from "@ledgerhq/types-live";
 import Touchable from "../Touchable";
+import { track } from "../../analytics";
 
 export type Props = PostOnboardingAction & ActionState;
 
@@ -22,10 +23,11 @@ const PostOnboardingActionRow: React.FC<Props> = props => {
   const navigation = useNavigation();
 
   const handlePress = useCallback(() => {
-    if (navigationParams) navigation.navigate(...navigationParams);
-  }, [navigationParams, navigation]);
-
-  // TODO: (design) implement Tag component variant in native-ui
+    if (navigationParams) {
+      navigation.navigate(...navigationParams);
+      onStartEvent && track(onStartEvent, onStartEventProperties);
+    }
+  }, [navigationParams, navigation, onStartEvent, onStartEventProperties]);
 
   return (
     <Touchable onPress={completed ? null : handlePress}>
