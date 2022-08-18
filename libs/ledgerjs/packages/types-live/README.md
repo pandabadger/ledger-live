@@ -134,46 +134,51 @@ Ledger Live main types.
 *   [PortfolioRange](#portfoliorange)
 *   [AssetsDistribution](#assetsdistribution)
     *   [Properties](#properties-43)
-*   [featureFlagId](#featureflagid)
-*   [navigationParams](#navigationparams)
-*   [icon](#icon)
-*   [title](#title)
-*   [description](#description)
-*   [tagLabel](#taglabel)
-*   [actionCompletedPopupLabel](#actioncompletedpopuplabel)
-*   [actionCompletedHubTitle](#actioncompletedhubtitle)
-*   [onStartEvent](#onstartevent)
-*   [onStartEventProperties](#onstarteventproperties)
-*   [completed](#completed)
-*   [PostOnboardingState](#postonboardingstate)
+*   [PostOnboardingActionId](#postonboardingactionid)
+*   [PostOnboardingAction](#postonboardingaction)
     *   [Properties](#properties-44)
+    *   [featureFlagId](#featureflagid)
+    *   [navigationParams](#navigationparams)
+    *   [icon](#icon)
+    *   [title](#title)
+    *   [description](#description)
+    *   [tagLabel](#taglabel)
+    *   [actionCompletedPopupLabel](#actioncompletedpopuplabel)
+    *   [actionCompletedHubTitle](#actioncompletedhubtitle)
+    *   [onStartEvent](#onstartevent)
+    *   [onStartEventProperties](#onstarteventproperties)
+*   [PostOnboardingActionState](#postonboardingactionstate)
+    *   [Properties](#properties-45)
+    *   [completed](#completed)
+*   [PostOnboardingState](#postonboardingstate)
+    *   [Properties](#properties-46)
     *   [deviceModelId](#devicemodelid)
     *   [walletEntryPointDismissed](#walletentrypointdismissed)
     *   [actionsToComplete](#actionstocomplete)
     *   [actionsCompleted](#actionscompleted)
     *   [lastActionCompleted](#lastactioncompleted)
 *   [PostOnboardingHubState](#postonboardinghubstate)
-    *   [Properties](#properties-45)
-*   [SwapOperation](#swapoperation)
-    *   [Properties](#properties-46)
-*   [SwapOperationRaw](#swapoperationraw)
     *   [Properties](#properties-47)
-*   [SignedOperation](#signedoperation)
+*   [SwapOperation](#swapoperation)
     *   [Properties](#properties-48)
-*   [SignedOperationRaw](#signedoperationraw)
+*   [SwapOperationRaw](#swapoperationraw)
     *   [Properties](#properties-49)
+*   [SignedOperation](#signedoperation)
+    *   [Properties](#properties-50)
+*   [SignedOperationRaw](#signedoperationraw)
+    *   [Properties](#properties-51)
 *   [SignOperationEvent](#signoperationevent)
 *   [SignOperationEventRaw](#signoperationeventraw)
 *   [TransactionCommon](#transactioncommon)
-    *   [Properties](#properties-50)
-*   [TransactionCommonRaw](#transactioncommonraw)
-    *   [Properties](#properties-51)
-*   [FeeStrategy](#feestrategy)
     *   [Properties](#properties-52)
-*   [TransactionStatusCommon](#transactionstatuscommon)
+*   [TransactionCommonRaw](#transactioncommonraw)
     *   [Properties](#properties-53)
-*   [TransactionStatusCommonRaw](#transactionstatuscommonraw)
+*   [FeeStrategy](#feestrategy)
     *   [Properties](#properties-54)
+*   [TransactionStatusCommon](#transactionstatuscommon)
+    *   [Properties](#properties-55)
+*   [TransactionStatusCommonRaw](#transactionstatuscommonraw)
+    *   [Properties](#properties-56)
 
 ### TokenAccount
 
@@ -1058,14 +1063,39 @@ Type: {isAvailable: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/
 *   `showFirst` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
 *   `sum` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
 
-### featureFlagId
+### PostOnboardingActionId
+
+Unique identifier of a post onboarding action.
+
+### PostOnboardingAction
+
+All necessary information for complete integration of a post onboarding
+action.
+
+Type: {id: [PostOnboardingActionId](#postonboardingactionid), featureFlagId: [FeatureId](#featureid)?, navigationParams: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>?, icon: function (props: {size: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), color: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)}): any, title: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), description: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), tagLabel: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?, actionCompletedPopupLabel: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), actionCompletedHubTitle: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), onStartEvent: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?, onStartEventProperties: any?}
+
+#### Properties
+
+*   `id` **[PostOnboardingActionId](#postonboardingactionid)** 
+*   `featureFlagId` **[FeatureId](#featureid)?** 
+*   `navigationParams` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>?** 
+*   `icon` **function (props: {size: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), color: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)}): any** 
+*   `title` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `description` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `tagLabel` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
+*   `actionCompletedPopupLabel` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `actionCompletedHubTitle` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `onStartEvent` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** 
+*   `onStartEventProperties` **any?** 
+
+#### featureFlagId
 
 If this action is linked to a feature that is enabled by a feature flag,
 use this property to identify the feature flag.
 
 Type: [FeatureId](#featureid)
 
-### navigationParams
+#### navigationParams
 
 Navigation params when the user presses the button for this action
 
@@ -1076,57 +1106,67 @@ Navigation params when the user presses the button for this action
 
 Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>
 
-### icon
+#### icon
 
 Icon displayed for this action in the post onboarding hub.
 
 Type: function (props: {size: [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), color: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)}): any
 
-### title
+#### title
 
 Title displayed for this action in the post onboarding hub.
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-### description
+#### description
 
 Description displayed for this action in the post onboarding hub.
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-### tagLabel
+#### tagLabel
 
 Tag displayed for this action in the post onboarding hub.
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-### actionCompletedPopupLabel
+#### actionCompletedPopupLabel
 
 Will appear in an success alert at the bottom of the post-onboarding hub
 after completing this action.
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-### actionCompletedHubTitle
+#### actionCompletedHubTitle
 
 Will be used as a title success alert at the bottom of the post-onboarding
 hub after completing this action.
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-### onStartEvent
+#### onStartEvent
 
 Event that will be dispatched when starting this action.
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-### onStartEventProperties
+#### onStartEventProperties
 
 Event properties that will be dispatched when starting this action.
 
 Type: any
 
-### completed
+### PostOnboardingActionState
+
+State of a post onboarding action.
+
+Type: {completed: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)}
+
+#### Properties
+
+*   `completed` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+#### completed
 
 Whether the user has completed this action. This will be reflected in the
 UI of the post onboarding hub.
@@ -1139,15 +1179,15 @@ To be used for a redux reducer.
 Keeps all necessary information about the state of the post onboarding hub
 and can be persisted in storage.
 
-Type: {deviceModelId: (DeviceModelId | null), walletEntryPointDismissed: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), actionsToComplete: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<PostOnboardingActionId>, actionsCompleted: any, lastActionCompleted: (PostOnboardingActionId | null)}
+Type: {deviceModelId: (DeviceModelId | null), walletEntryPointDismissed: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), actionsToComplete: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[PostOnboardingActionId](#postonboardingactionid)>, actionsCompleted: any, lastActionCompleted: ([PostOnboardingActionId](#postonboardingactionid) | null)}
 
 #### Properties
 
 *   `deviceModelId` **(DeviceModelId | null)** 
 *   `walletEntryPointDismissed` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
-*   `actionsToComplete` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<PostOnboardingActionId>** 
+*   `actionsToComplete` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[PostOnboardingActionId](#postonboardingactionid)>** 
 *   `actionsCompleted` **any** 
-*   `lastActionCompleted` **(PostOnboardingActionId | null)** 
+*   `lastActionCompleted` **([PostOnboardingActionId](#postonboardingactionid) | null)** 
 
 #### deviceModelId
 
@@ -1167,7 +1207,7 @@ List of all actions that have to be completed in this post onboarding
 (whether they are completed or).
 This is used to populate the list of actions in the post onboarding hub UI.
 
-Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<PostOnboardingActionId>
+Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[PostOnboardingActionId](#postonboardingactionid)>
 
 #### actionsCompleted
 
@@ -1182,19 +1222,19 @@ Last action that the user has completed.
 This is used to display potentially different content in the post
 onboarding hub UI depending on the last action that was completed.
 
-Type: (PostOnboardingActionId | null)
+Type: ([PostOnboardingActionId](#postonboardingactionid) | null)
 
 ### PostOnboardingHubState
 
 Digest of the store & list of actions into something directly consumable
 by UI. (All UI data will be in there).
 
-Type: {deviceModelId: (DeviceModelId | null), lastActionCompleted: (PostOnboardingAction | null), actionsState: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>}
+Type: {deviceModelId: (DeviceModelId | null), lastActionCompleted: ([PostOnboardingAction](#postonboardingaction) | null), actionsState: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>}
 
 #### Properties
 
 *   `deviceModelId` **(DeviceModelId | null)** 
-*   `lastActionCompleted` **(PostOnboardingAction | null)** 
+*   `lastActionCompleted` **([PostOnboardingAction](#postonboardingaction) | null)** 
 *   `actionsState` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)\<any>** 
 
 ### SwapOperation

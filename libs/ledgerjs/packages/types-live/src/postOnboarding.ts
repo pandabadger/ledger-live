@@ -1,6 +1,9 @@
 import { DeviceModelId } from "@ledgerhq/types-devices";
 import { FeatureId } from ".";
 
+/**
+ * Unique identifier of a post onboarding action.
+ */
 export enum PostOnboardingActionId {
   claimMock = "claimMock",
   migrateAssetsMock = "migrateAssetsMock",
@@ -8,6 +11,10 @@ export enum PostOnboardingActionId {
   myPostOnboardingAction = "myPostOnboardingAction",
 }
 
+/**
+ * All necessary information for complete integration of a post onboarding
+ * action.
+ */
 export type PostOnboardingAction = {
   id: PostOnboardingActionId;
 
@@ -69,7 +76,10 @@ export type PostOnboardingAction = {
   onStartEventProperties?: any;
 };
 
-export type ActionState = {
+/**
+ * State of a post onboarding action.
+ */
+export type PostOnboardingActionState = {
   /**
    * Whether the user has completed this action. This will be reflected in the
    * UI of the post onboarding hub.
@@ -121,5 +131,5 @@ export type PostOnboardingState = {
 export type PostOnboardingHubState = {
   deviceModelId: DeviceModelId | null;
   lastActionCompleted: PostOnboardingAction | null;
-  actionsState: (PostOnboardingAction & ActionState)[];
+  actionsState: (PostOnboardingAction & PostOnboardingActionState)[];
 };
