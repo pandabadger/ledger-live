@@ -1,12 +1,10 @@
 import { DeviceModelId } from "@ledgerhq/devices/lib/index";
 import { Flex } from "@ledgerhq/native-ui";
 import React from "react";
+import { useStartPostOnboardingCallback } from "@ledgerhq/live-common/lib/postOnboarding/hooks";
 import PostOnboardingEntryPointCard from "../../components/PostOnboarding/PostOnboardingEntryPointCard";
 import SettingsRow from "../../components/SettingsRow";
-import {
-  useNavigateToPostOnboardingHubCallback,
-  useStartPostOnboardingCallback,
-} from "../../logic/postOnboarding/hooks";
+import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/hooks";
 
 export default () => {
   const handleInitFTS = useStartPostOnboardingCallback(

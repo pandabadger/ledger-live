@@ -2,13 +2,13 @@
 /* eslint import/no-cycle: 0 */
 import { combineReducers } from "redux";
 import { PostOnboardingState } from "@ledgerhq/types-live";
+import postOnboarding from "@ledgerhq/live-common/lib/postOnboarding/reducer";
 import accounts from "./accounts";
 import settings from "./settings";
 import appstate from "./appstate";
 import ble from "./ble";
 import ratings from "./ratings";
 import notifications from "./notifications";
-import postOnboarding from "./postOnboarding";
 import type { AccountsState } from "./accounts";
 import type { SettingsState } from "./settings";
 import type { AppState } from "./appstate";

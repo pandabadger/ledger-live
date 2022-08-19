@@ -25,7 +25,7 @@ import {
   useAllPostOnboardingActionsCompleted,
   useClearLastActionCompletedCallback,
   usePostOnboardingHubState,
-} from "../../logic/postOnboarding/hooks";
+} from "@ledgerhq/live-common/lib/postOnboarding/hooks";
 import PostOnboardingActionRow from "../../components/PostOnboarding/PostOnboardingActionRow";
 import { NavigatorName } from "../../const";
 

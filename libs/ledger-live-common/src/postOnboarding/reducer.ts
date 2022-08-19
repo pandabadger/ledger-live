@@ -1,4 +1,4 @@
-import { DeviceModelId } from "@ledgerhq/devices/lib/";
+import { DeviceModelId } from "@ledgerhq/types-devices";
 import {
   PostOnboardingActionId,
   PostOnboardingState,
@@ -19,14 +19,14 @@ const handlers: Record<
 > = {
   POST_ONBOARDING_IMPORT_STATE: (
     _,
-    action: { newState: Record<string, any> },
+    action: { newState: Record<string, any> }
   ): PostOnboardingState => action.newState as PostOnboardingState,
   POST_ONBOARDING_INIT: (
     _,
     action: {
       deviceModelId: DeviceModelId;
       actionsIds: PostOnboardingActionId[];
-    },
+    }
   ) => {
     const { deviceModelId, actionsIds } = action;
     if (actionsIds.length === 0) return initialState;
@@ -34,13 +34,13 @@ const handlers: Record<
       deviceModelId,
       walletEntryPointDismissed: false,
       actionsToComplete: actionsIds,
-      actionsCompleted: Object.fromEntries(actionsIds.map(id => [id, false])),
+      actionsCompleted: Object.fromEntries(actionsIds.map((id) => [id, false])),
       lastActionCompleted: null,
     };
   },
   POST_ONBOARDING_SET_ACTION_COMPLETED: (
     state,
-    action: { actionId: PostOnboardingActionId },
+    action: { actionId: PostOnboardingActionId }
   ) => {
     const { actionId } = action;
     const actionsCompleted = { ...state.actionsCompleted, [actionId]: true };
@@ -50,11 +50,11 @@ const handlers: Record<
       lastActionCompleted: actionId,
     };
   },
-  POST_ONBOARDING_CLEAR_LAST_ACTION_COMPLETED: state => ({
+  POST_ONBOARDING_CLEAR_LAST_ACTION_COMPLETED: (state) => ({
     ...state,
     lastActionCompleted: null,
   }),
-  POST_ONBOARDING_HIDE_WALLET_ENTRY_POINT: state => ({
+  POST_ONBOARDING_HIDE_WALLET_ENTRY_POINT: (state) => ({
     ...state,
     walletEntryPointDismissed: true,
   }),
@@ -72,7 +72,12 @@ export const hubStateSelector = ({
   postOnboarding,
 }: {
   postOnboarding: PostOnboardingState;
-}) => {
+}): {
+  deviceModelId: PostOnboardingState["deviceModelId"];
+  actionsToComplete: PostOnboardingState["actionsToComplete"];
+  actionsCompleted: PostOnboardingState["actionsCompleted"];
+  lastActionCompleted: PostOnboardingState["lastActionCompleted"];
+} => {
   const {
     deviceModelId,
     actionsToComplete,
@@ -97,4 +102,5 @@ export const walletPostOnboardingEntryPointDismissedSelector = ({
   postOnboarding,
 }: {
   postOnboarding: PostOnboardingState;
-}) => postOnboarding.walletEntryPointDismissed;
+}): PostOnboardingState["walletEntryPointDismissed"] =>
+  postOnboarding.walletEntryPointDismissed;

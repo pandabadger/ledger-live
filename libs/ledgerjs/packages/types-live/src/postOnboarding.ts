@@ -5,6 +5,7 @@ import { FeatureId } from ".";
  * Unique identifier of a post onboarding action.
  */
 export enum PostOnboardingActionId {
+  emptyAction = "emptyAction",
   claimMock = "claimMock",
   migrateAssetsMock = "migrateAssetsMock",
   personalizeMock = "personalizeMock",

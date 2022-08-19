@@ -16,6 +16,7 @@ import { Box, Flex, Link as TextLink, Text } from "@ledgerhq/native-ui";
 import styled, { useTheme } from "styled-components/native";
 import proxyStyled from "@ledgerhq/native-ui/components/styled";
 import { PlusMedium } from "@ledgerhq/native-ui/assets/icons";
+import { usePostOnboardingEntryPointVisibleOnWallet } from "@ledgerhq/live-common/lib/postOnboarding/hooks";
 import { useRefreshAccountsOrdering } from "../../actions/general";
 import { accountsSelector } from "../../reducers/accounts";
 import {
@@ -45,7 +46,6 @@ import TabBarSafeAreaView, {
   TAB_BAR_SAFE_HEIGHT,
 } from "../../components/TabBar/TabBarSafeAreaView";
 import PostOnboardingEntryPointCard from "../../components/PostOnboarding/PostOnboardingEntryPointCard";
-import { usePostOnboardingEntryPointVisibleOnWallet } from "../../logic/postOnboarding/hooks";
 
 export { default as PortfolioTabIcon } from "./TabIcon";
 

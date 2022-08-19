@@ -5,10 +5,10 @@ import { getDeviceModel } from "@ledgerhq/devices/lib/index";
 import styled from "styled-components/native";
 import {
   useHideWalletEntryPointCallback,
-  useNavigateToPostOnboardingHubCallback,
   usePostOnboardingDeviceModelId,
   usePostOnboardingEntryPointVisibleOnWallet,
-} from "../../logic/postOnboarding/hooks";
+} from "@ledgerhq/live-common/lib/postOnboarding/hooks";
+import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/hooks";
 import Touchable from "../Touchable";
 import darkPlaceholderImage from "../../images/illustration/Dark/_000_PLACEHOLDER.png";
 import lightPlaceholderImage from "../../images/illustration/Light/_000_PLACEHOLDER.png";

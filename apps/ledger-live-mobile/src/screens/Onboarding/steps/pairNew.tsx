@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, memo } from "react";
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { useTheme } from "styled-components/native";
 import { useDispatch } from "react-redux";
+import { useStartPostOnboardingCallback } from "@ledgerhq/live-common/lib/postOnboarding/hooks";
 import { NavigatorName, ScreenName } from "../../../const";
 import { DeviceNames } from "../types";
 import BaseStepperView, { PairNew, ConnectNano } from "./setupDevice/scenes";
@@ -13,8 +14,6 @@ import StepLottieAnimation from "./setupDevice/scenes/StepLottieAnimation";
 import { completeOnboarding } from "../../../actions/settings";
 import { useNavigationInterceptor } from "../onboardingContext";
 import useNotifications from "../../../logic/notifications";
-import { useStartPostOnboardingCallback } from "../../../logic/postOnboarding/hooks";
-import { DeviceModelId } from "@ledgerhq/devices/lib/";
 
 const images = {
   light: {

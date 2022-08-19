@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware, compose } from "redux";
+import { importPostOnboardingState } from "@ledgerhq/live-common/lib/postOnboarding/actions";
 import {
   getAccounts,
   getCountervalues,
@@ -15,7 +16,6 @@ import { importSettings } from "../actions/settings";
 import { importStore as importAccounts } from "../actions/accounts";
 import { importBle } from "../actions/ble";
 import { INITIAL_STATE, supportedCountervalues } from "../reducers/settings";
-import { importPostOnboardingState } from "../actions/postOnboarding";
 
 // $FlowFixMe
 export const store = createStore(

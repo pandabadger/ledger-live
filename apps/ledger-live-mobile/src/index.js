@@ -46,6 +46,7 @@ import {
 import { LocalLiveAppProvider } from "@ledgerhq/live-common/platform/providers/LocalLiveAppProvider/index";
 
 import { isEqual } from "lodash";
+import { postOnboardingSelector } from "@ledgerhq/live-common/lib/postOnboarding/reducer";
 import logger from "./logger";
 import {
   saveAccounts,
@@ -110,7 +111,7 @@ import MarketDataProvider from "./screens/Market/MarketDataProviderWrapper";
 import AdjustProvider from "./components/AdjustProvider";
 import DelayedTrackingProvider from "./components/DelayedTrackingProvider";
 import { useFilteredManifests } from "./screens/Platform/shared";
-import { postOnboardingSelector } from "./reducers/postOnboarding";
+import PostOnboardingProviderWrapped from "./logic/postOnboarding/PostOnboardingProviderWrapped";
 
 const themes = {
   light: lightTheme,
@@ -596,20 +597,22 @@ export default class Root extends Component<
                                               value={true}
                                             >
                                               <OnboardingContextProvider>
-                                                <ToastProvider>
-                                                  <NotificationsProvider>
-                                                    <SnackbarContainer />
-                                                    <NftMetadataProvider>
-                                                      <MarketDataProvider>
-                                                        <App
-                                                          importDataString={
-                                                            importDataString
-                                                          }
-                                                        />
-                                                      </MarketDataProvider>
-                                                    </NftMetadataProvider>
-                                                  </NotificationsProvider>
-                                                </ToastProvider>
+                                                <PostOnboardingProviderWrapped>
+                                                  <ToastProvider>
+                                                    <NotificationsProvider>
+                                                      <SnackbarContainer />
+                                                      <NftMetadataProvider>
+                                                        <MarketDataProvider>
+                                                          <App
+                                                            importDataString={
+                                                              importDataString
+                                                            }
+                                                          />
+                                                        </MarketDataProvider>
+                                                      </NftMetadataProvider>
+                                                    </NotificationsProvider>
+                                                  </ToastProvider>
+                                                </PostOnboardingProviderWrapped>
                                               </OnboardingContextProvider>
                                             </ButtonUseTouchable.Provider>
                                           </CounterValuesProvider>
