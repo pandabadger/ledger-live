@@ -930,9 +930,9 @@
         "title" : "報酬獲得",
         "desc" : "不労所得を獲得して暗号資産を運用する"
       },
-      "mint": {
-        "title": "ミント”,",
-        "desc": "[ L ] MarketでコラボNFTをミントしましょう"
+      "mint" : {
+        "title" : "ミント",
+        "desc" : "[ L ] Marketにおける専用コラボレーションからNFTをミント"
       }
     },
     "comingSoon" : "近日公開",
@@ -3259,7 +3259,9 @@
     "newVersion" : "お使いの{{deviceName}}で{{version}}のアップデートが利用可能です",
     "drawerUpdate" : {
       "title" : "ファームウェアのアップデート",
-      "description" : "Ledger Nanoをデスクトップ版Ledger Liveアプリに接続して、Ledger Nanoのファームウェアをアップデートします。"
+      "description" : "Ledger Nanoをデスクトップ版Ledger Liveアプリに接続して、Ledger Nanoのファームウェアをアップデートします。",
+      "pleaseConnectUsbTitle" : "USBケーブルが必要です",
+      "pleaseConnectUsbDescription" : "ファームウェアのアップデートを開始するには、 {{deviceName}}をUSBケーブルでスマートフォンに接続します。"
     }
   },
   "FirmwareUpdateReleaseNotes" : {
