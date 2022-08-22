@@ -930,9 +930,9 @@
         "title" : "Verdienen",
         "desc" : "Verdienen Sie ein passives Einkommen und vermehren Sie Ihr Kryptovermögen"
       },
-      "mint": {
-        "title": "Minting",
-        "desc": "Minte NFTs von exklusiven Kollaborationen auf [ L ] Market"
+      "mint" : {
+        "title" : "Mint",
+        "desc" : "Mint NFTs aus exklusiven Kooperationen auf dem [ L ] Markt"
       }
     },
     "comingSoon" : "In Kürze verfügbar",
@@ -3259,7 +3259,9 @@
     "newVersion" : "Update {{version}} steht für Ihre {{deviceName}} bereit",
     "drawerUpdate" : {
       "title" : "Firmware-Update",
-      "description" : "Aktualisieren Sie Ihre Ledger Nano Firmware, indem Sie sie mit der Ledger Live Anwendung auf dem Desktop verbinden"
+      "description" : "Aktualisieren Sie Ihre Ledger Nano Firmware, indem Sie sie mit der Ledger Live Anwendung auf dem Desktop verbinden",
+      "pleaseConnectUsbTitle" : "USB-Kabel erforderlich",
+      "pleaseConnectUsbDescription" : "Um die Firmware-Aktualisierung zu starten, schließen Sie Ihr {{deviceName}} über ein USB-Kabel an Ihr Mobiltelefon an."
     }
   },
   "FirmwareUpdateReleaseNotes" : {
