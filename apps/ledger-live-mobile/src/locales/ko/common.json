@@ -930,9 +930,9 @@
         "title" : "소득 창출",
         "desc" : "불로소득을 얻고 암호화폐를 성장시키세요"
       },
-      "mint": {
-        "title": "민팅",
-        "desc": "[ L ] Market 독점 콜라보레이션 NFT 민팅"
+      "mint" : {
+        "title" : "민팅",
+        "desc" : "[ L ] 마켓 독점 콜라보 NFT 민팅"
       }
     },
     "comingSoon" : "곧 출시 예정",
@@ -3259,7 +3259,9 @@
     "newVersion" : "{{deviceName}}에 사용할 수 있는 업데이트 {{version}}",
     "drawerUpdate" : {
       "title" : "펌웨어 업데이트",
-      "description" : "Ledger Nano 펌웨어를 Ledger Live 데스크탑 애플리케이션에 연결해 업데이트하세요"
+      "description" : "Ledger Nano 펌웨어를 Ledger Live 데스크탑 애플리케이션에 연결해 업데이트하세요",
+      "pleaseConnectUsbTitle" : "USB 케이블이 필요합니다",
+      "pleaseConnectUsbDescription" : "펌웨어 업데이트를 시작하려면 USB 케이블로 {{deviceName}} 장치를 핸드폰에 연결하세요."
     }
   },
   "FirmwareUpdateReleaseNotes" : {
