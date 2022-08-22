@@ -2,7 +2,7 @@
 /* eslint import/no-cycle: 0 */
 import { combineReducers } from "redux";
 import { PostOnboardingState } from "@ledgerhq/types-live";
-import postOnboarding from "@ledgerhq/live-common/lib/postOnboarding/reducer";
+import postOnboarding from "@ledgerhq/live-common/postOnboarding/reducer";
 import accounts from "./accounts";
 import settings from "./settings";
 import appstate from "./appstate";

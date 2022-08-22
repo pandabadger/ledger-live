@@ -46,7 +46,7 @@ import {
 import { LocalLiveAppProvider } from "@ledgerhq/live-common/platform/providers/LocalLiveAppProvider/index";
 
 import { isEqual } from "lodash";
-import { postOnboardingSelector } from "@ledgerhq/live-common/lib/postOnboarding/reducer";
+import { postOnboardingSelector } from "@ledgerhq/live-common/postOnboarding/reducer";
 import logger from "./logger";
 import {
   saveAccounts,

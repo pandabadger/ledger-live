@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { PostOnboardingProvider } from "@ledgerhq/live-common/lib/postOnboarding/PostOnboardingProvider";
+import { PostOnboardingProvider } from "@ledgerhq/live-common/postOnboarding/PostOnboardingProvider";
 import { getPostOnboardingAction, getPostOnboardingActionsForDevice } from ".";
 import { useNavigateToPostOnboardingHubCallback } from "./hooks";
 

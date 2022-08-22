@@ -16,7 +16,7 @@ import { Box, Flex, Link as TextLink, Text } from "@ledgerhq/native-ui";
 import styled, { useTheme } from "styled-components/native";
 import proxyStyled from "@ledgerhq/native-ui/components/styled";
 import { PlusMedium } from "@ledgerhq/native-ui/assets/icons";
-import { usePostOnboardingEntryPointVisibleOnWallet } from "@ledgerhq/live-common/lib/postOnboarding/hooks";
+import { usePostOnboardingEntryPointVisibleOnWallet } from "@ledgerhq/live-common/postOnboarding/hooks";
 import { useRefreshAccountsOrdering } from "../../actions/general";
 import { accountsSelector } from "../../reducers/accounts";
 import {
@@ -176,11 +176,11 @@ function PortfolioScreen({ navigation }: Props) {
 
   const data = useMemo(
     () => [
-      postOnboardingVisible && (
-        <Box m={6}>
-          <PostOnboardingEntryPointCard />
-        </Box>
-      ),
+      // postOnboardingVisible && (
+      //   <Box m={6}>
+      //     <PostOnboardingEntryPointCard />
+      //   </Box>
+      // ),
       !showAssets && (
         <Box mx={6} mt={3}>
           <AddAssetsCard />
@@ -280,7 +280,7 @@ function PortfolioScreen({ navigation }: Props) {
       closeAddModal,
       showCarousel,
       carouselVisibility,
-      postOnboardingVisible,
+      // postOnboardingVisible,
     ],
   );
 

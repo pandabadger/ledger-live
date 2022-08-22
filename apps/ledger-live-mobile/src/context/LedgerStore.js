@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware, compose } from "redux";
-import { importPostOnboardingState } from "@ledgerhq/live-common/lib/postOnboarding/actions";
+import { importPostOnboardingState } from "@ledgerhq/live-common/postOnboarding/actions";
 import {
   getAccounts,
   getCountervalues,

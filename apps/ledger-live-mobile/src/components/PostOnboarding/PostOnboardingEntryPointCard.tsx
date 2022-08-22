@@ -7,7 +7,7 @@ import {
   useHideWalletEntryPointCallback,
   usePostOnboardingDeviceModelId,
   usePostOnboardingEntryPointVisibleOnWallet,
-} from "@ledgerhq/live-common/lib/postOnboarding/hooks";
+} from "@ledgerhq/live-common/postOnboarding/hooks";
 import { useNavigateToPostOnboardingHubCallback } from "../../logic/postOnboarding/hooks";
 import Touchable from "../Touchable";
 import darkPlaceholderImage from "../../images/illustration/Dark/_000_PLACEHOLDER.png";
