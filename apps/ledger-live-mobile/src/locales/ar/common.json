@@ -929,6 +929,10 @@
       "earn" : {
         "title" : "اكسب",
         "desc" : "كسب دخل سلبي وتنمية أصولك المشفرة"
+      },
+      "mint" : {
+        "title" : "سَكَّ NFT",
+        "desc" : "سَكَّ الرموز غير القابلة للاستبدال (NFT) من خلال تعاونات حصرية على سوق [ L ]"
       }
     },
     "comingSoon" : "قريباً",
@@ -3255,7 +3259,9 @@
     "newVersion" : "التحديث {{version}} متاح لجهازك {{deviceName}}",
     "drawerUpdate" : {
       "title" : "تحديث البرنامج الثابت",
-      "description" : "قم بتحديث برنامج Ledger Nano الثابت عن طريق توصيله إلى تطبيق Ledger Live على سطح المكتب"
+      "description" : "قم بتحديث برنامج Ledger Nano الثابت عن طريق توصيله إلى تطبيق Ledger Live على سطح المكتب",
+      "pleaseConnectUsbTitle" : "كبل USB مطلوب",
+      "pleaseConnectUsbDescription" : "لبدء تحديث البرنامج الثابت، قم بتوصيل {{deviceName}} خاصتك بهاتفك الجوال باستخدام كبل USB."
     }
   },
   "FirmwareUpdateReleaseNotes" : {
