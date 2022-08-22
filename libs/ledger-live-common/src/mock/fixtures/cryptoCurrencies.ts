@@ -1,6 +1,6 @@
 import type { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
 
-export default function createCryptoCurrency(family: string): CryptoCurrency {
+export default function createFixtureCryptoCurrency(family: string): CryptoCurrency {
   return {
     type: "CryptoCurrency",
     id: "testCoinId",
