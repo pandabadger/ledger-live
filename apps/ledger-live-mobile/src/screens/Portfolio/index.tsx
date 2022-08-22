@@ -176,11 +176,11 @@ function PortfolioScreen({ navigation }: Props) {
 
   const data = useMemo(
     () => [
-      // postOnboardingVisible && (
-      //   <Box m={6}>
-      //     <PostOnboardingEntryPointCard />
-      //   </Box>
-      // ),
+      postOnboardingVisible && (
+        <Box m={6}>
+          <PostOnboardingEntryPointCard />
+        </Box>
+      ),
       !showAssets && (
         <Box mx={6} mt={3}>
           <AddAssetsCard />
