@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux/lib";
+import { useDispatch, useSelector } from "react-redux";
 import { useCallback, useMemo } from "react";
-import { DeviceModelId } from "@ledgerhq/devices/lib/index";
+import { DeviceModelId } from "@ledgerhq/devices/index";
 import {
   PostOnboardingActionId,
   PostOnboardingHubState,
