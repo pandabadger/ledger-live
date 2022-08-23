@@ -62,6 +62,8 @@ import UpdateIcon from "../../icons/Update";
 import InfoIcon from "../../icons/Info";
 import InfoPanel from "./InfoPanel";
 import { track } from "../../analytics/segment";
+import prepareSignTransaction from "./liveSDKLogic";
+import { SignedOperation } from "@ledgerhq/types-live";
 
 const tracking = trackingWrapper(track);
 type Props = {
@@ -236,6 +238,7 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
       }),
     [manifest, accounts, navigation],
   );
+
   const receiveOnAccount = useCallback(
     ({ accountId }: { accountId: string }) => {
       tracking.platformReceiveRequested(manifest);
@@ -271,6 +274,7 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
     },
     [manifest, accounts, navigation],
   );
+
   const signTransaction = useCallback(
     ({
       accountId,
@@ -283,50 +287,24 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
       transaction: RawPlatformTransaction;
       params: any;
     }) => {
-      const platformTransaction = deserializePlatformTransaction(transaction);
-      const account = accounts.find(account => account.id === accountId);
       tracking.platformSignTransactionRequested(manifest);
 
-      if (!account) {
-        tracking.platformSignTransactionFail(manifest);
-        return Promise.reject(new Error("Account required"));
+      let transactionInfoPrepared
+      try {
+        transactionInfoPrepared = prepareSignTransaction(
+          accounts,
+          manifest,
+          tracking,
+          accountId,
+          transaction
+        );  
+      } catch (error) {
+        return Promise.reject(error);
       }
 
-      const parentAccount = isTokenAccount(account)
-        ? accounts.find(a => a.id === account.parentId)
-        : undefined;
-
-      if (
-        (isTokenAccount(account)
-          ? parentAccount?.currency.family
-          : account.currency.family) !== platformTransaction.family
-      ) {
-        return Promise.reject(
-          new Error("Transaction family not matching account currency family"),
-        );
-      }
-
+      const { parentAccount, tx } = transactionInfoPrepared;
+      
       return new Promise((resolve, reject) => {
-        // @TODO replace with correct error
-        if (!transaction) {
-          tracking.platformSignTransactionFail(manifest);
-          reject(new Error("Transaction required"));
-          return;
-        }
-
-        const bridge = getAccountBridge(account, parentAccount);
-        const { liveTx } =
-          getPlatformTransactionSignFlowInfos(platformTransaction);
-        const t = bridge.createTransaction(account);
-        const { recipient, ...txData } = liveTx;
-        const t2 = bridge.updateTransaction(t, {
-          recipient,
-          subAccountId: isTokenAccount(account) ? account.id : undefined,
-        });
-        const tx = bridge.updateTransaction(t2, {
-          userGasLimit: txData.gasLimit,
-          ...txData,
-        });
         navigation.navigate(NavigatorName.SignTransaction, {
           screen: ScreenName.SignTransactionSummary,
           params: {
@@ -334,9 +312,9 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
             nextNavigation: ScreenName.SignTransactionSelectDevice,
             transaction: tx,
             accountId,
-            parentId: parentAccount ? parentAccount.id : undefined,
+            parentId: parentAccount?.id,
             appName: params.useApp,
-            onSuccess: ({ signedOperation, transactionSignError }) => {
+            onSuccess: ({ signedOperation, transactionSignError }: { signedOperation: SignedOperation, transactionSignError: Error }) => {
               if (transactionSignError) {
                 tracking.platformSignTransactionFail(manifest);
                 reject(transactionSignError);
@@ -347,7 +325,7 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
                 n.pop();
               }
             },
-            onError: error => {
+            onError: (error: Error) => {
               tracking.platformSignTransactionFail(manifest);
               reject(error);
             },
@@ -357,6 +335,7 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
     },
     [manifest, accounts, navigation],
   );
+
   const broadcastTransaction = useCallback(
     ({
       accountId,
@@ -404,6 +383,7 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
     },
     [manifest, accounts],
   );
+
   const startExchange = useCallback(
     ({ exchangeType }: { exchangeType: number }) => {
       tracking.platformStartExchangeRequested(manifest);
@@ -439,6 +419,7 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
     },
     [manifest, navigation],
   );
+
   const completeExchange = useCallback(
     ({
       provider,
