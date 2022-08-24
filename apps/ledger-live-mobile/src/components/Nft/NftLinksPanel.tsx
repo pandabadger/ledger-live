@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import React, { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigation, useTheme } from "@react-navigation/native";
 import { NFTMetadata } from "@ledgerhq/types-live";
@@ -13,6 +13,7 @@ import GlobeIcon from "../../icons/Globe";
 import BottomModal from "../BottomModal";
 import { rgba } from "../../colors";
 import LText from "../LText";
+import { bottom } from "styled-system";
 
 type Props = {
   links: NFTMetadata["links"] | null;
@@ -30,8 +31,8 @@ const NftLink = ({
   onPress,
 }: {
   style?: any;
-  leftIcon: React$Node;
-  rightIcon?: React$Node;
+  leftIcon: React.ReactNode;
+  rightIcon?: React.ReactNode;
   title: string;
   subtitle?: string;
   onPress?: () => any;
@@ -58,6 +59,20 @@ const NftLinksPanel = ({ links, isOpen, onClose, metadata }: Props) => {
 
   const { uri } = metadata?.medias?.big || {};
 
+  const showCustomImageButton = customImage?.enabled && !!uri;
+
+  const handleOpenOpenSea = useCallback(() => {
+    links?.opensea && Linking.openURL(links?.opensea);
+  }, [links?.opensea]);
+
+  const handleOpenRarible = useCallback(() => {
+    links?.rarible && Linking.openURL(links?.rarible);
+  }, [links?.rarible]);
+
+  const handleOpenExplorer = useCallback(() => {
+    links?.explorer && Linking.openURL(links?.explorer);
+  }, [links?.explorer]);
+
   const handlePressCustomImage = useCallback(() => {
     if (!uri) return;
     navigation.navigate(NavigatorName.CustomImage, {
@@ -69,7 +84,100 @@ const NftLinksPanel = ({ links, isOpen, onClose, metadata }: Props) => {
     onClose && onClose();
   }, [navigation, onClose, uri]);
 
-  const showCustomImageButton = customImage?.enabled && !!uri;
+  const content = useMemo(() => {
+    const topSection = [
+      ...(links?.opensea
+        ? [
+            <NftLink
+              leftIcon={<OpenSeaIcon size={36} />}
+              title={`${t("nft.viewerModal.viewOn")} OpenSea`}
+              rightIcon={<ExternalLinkIcon size={20} color={colors.grey} />}
+              onPress={handleOpenOpenSea}
+            />,
+          ]
+        : []),
+      ...(links?.rarible
+        ? [
+            <NftLink
+              style={styles.sectionMargin}
+              leftIcon={<RaribleIcon size={36} />}
+              title={`${t("nft.viewerModal.viewOn")} Rarible`}
+              rightIcon={<ExternalLinkIcon size={20} color={colors.grey} />}
+              onPress={handleOpenRarible}
+            />,
+          ]
+        : []),
+    ];
+
+    const bottomSection = [
+      ...(links?.explorer
+        ? [
+            <NftLink
+              leftIcon={
+                <View
+                  style={[
+                    styles.roundIconContainer,
+                    { backgroundColor: rgba(colors.live, 0.1) },
+                  ]}
+                >
+                  <GlobeIcon size={16} color={colors.live} />
+                </View>
+              }
+              title={t("nft.viewerModal.viewInExplorer")}
+              rightIcon={<ExternalLinkIcon size={20} color={colors.grey} />}
+              onPress={handleOpenExplorer}
+            />,
+          ]
+        : []),
+      ...(showCustomImageButton
+        ? [
+            <NftLink
+              title={"Custom image"} // TODO: there is no design nor wording for this for now
+              leftIcon={
+                <View
+                  style={[
+                    styles.roundIconContainer,
+                    { backgroundColor: rgba(colors.live, 0.1) },
+                  ]}
+                >
+                  <Icons.BracketsMedium size={16} color={colors.live} />
+                </View>
+              }
+              onPress={handlePressCustomImage}
+            />,
+          ]
+        : []),
+    ];
+
+    const renderSection = (section: React.ReactNode[], keyPrefix: string) =>
+      section.map((item, index, arr) => (
+        <React.Fragment key={keyPrefix + index}>
+          {item}
+          {index !== arr.length - 1 ? (
+            <View style={styles.sectionMargin} />
+          ) : null}
+        </React.Fragment>
+      ));
+
+    return (
+      <>
+        {renderSection(topSection, "top")}
+        {topSection.length > 0 && bottomSection.length > 0 ? (
+          <View style={styles.hr} />
+        ) : null}
+        {renderSection(bottomSection, "bottom")}
+      </>
+    );
+  }, [
+    links,
+    colors,
+    t,
+    showCustomImageButton,
+    handleOpenExplorer,
+    handleOpenOpenSea,
+    handleOpenRarible,
+    handlePressCustomImage,
+  ]);
 
   return (
     <BottomModal
@@ -83,65 +191,7 @@ const NftLinksPanel = ({ links, isOpen, onClose, metadata }: Props) => {
       isOpened={isOpen}
       onClose={onClose}
     >
-      {!links?.opensea ? null : (
-        <NftLink
-          style={styles.sectionMargin}
-          leftIcon={<OpenSeaIcon size={36} />}
-          title={`${t("nft.viewerModal.viewOn")} OpenSea`}
-          rightIcon={<ExternalLinkIcon size={20} color={colors.grey} />}
-          onPress={() => Linking.openURL(links.opensea)}
-        />
-      )}
-
-      {!links?.rarible ? null : (
-        <NftLink
-          style={styles.sectionMargin}
-          leftIcon={<RaribleIcon size={36} />}
-          title={`${t("nft.viewerModal.viewOn")} Rarible`}
-          rightIcon={<ExternalLinkIcon size={20} color={colors.grey} />}
-          onPress={() => Linking.openURL(links.rarible)}
-        />
-      )}
-
-      {showCustomImageButton ? (
-        <NftLink
-          title={"Custom image"}
-          style={styles.sectionMargin}
-          leftIcon={
-            <View
-              style={[
-                styles.roundIconContainer,
-                { backgroundColor: rgba(colors.live, 0.1) },
-              ]}
-            >
-              <Icons.BracketsMedium size={16} color={colors.live} />
-            </View>
-          }
-          onPress={handlePressCustomImage}
-        />
-      ) : null}
-
-      {!links?.explorer ? null : (
-        <>
-          <View style={styles.hr} />
-
-          <NftLink
-            leftIcon={
-              <View
-                style={[
-                  styles.roundIconContainer,
-                  { backgroundColor: rgba(colors.live, 0.1) },
-                ]}
-              >
-                <GlobeIcon size={16} color={colors.live} />
-              </View>
-            }
-            title={t("nft.viewerModal.viewInExplorer")}
-            rightIcon={<ExternalLinkIcon size={20} color={colors.grey} />}
-            onPress={() => Linking.openURL(links.explorer)}
-          />
-        </>
-      )}
+      {content}
     </BottomModal>
   );
 };
@@ -170,6 +220,9 @@ const styles = StyleSheet.create({
   },
   sectionMargin: {
     marginBottom: 30,
+  },
+  sectionMarginTop: {
+    marginTop: 30,
   },
   icon: {
     marginRight: 16,
