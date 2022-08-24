@@ -88,6 +88,7 @@ import Learn from "../../screens/Learn";
 // eslint-disable-next-line import/no-cycle
 import { useNoNanoBuyNanoWallScreenOptions } from "../../context/NoNanoBuyNanoWall";
 import PostBuyDeviceSetupNanoWallScreen from "../../screens/PostBuyDeviceSetupNanoWallScreen";
+import CustomImageNavigator from "./CustomImageNavigator";
 
 export default function BaseNavigator() {
   const { t } = useTranslation();
@@ -601,6 +602,11 @@ export default function BaseNavigator() {
       <Stack.Screen
         name={NavigatorName.Accounts}
         component={AccountsNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name={NavigatorName.CustomImage}
+        component={CustomImageNavigator}
         options={{ headerShown: false }}
       />
       {Object.keys(families).map(name => {
