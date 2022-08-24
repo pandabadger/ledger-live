@@ -40,10 +40,9 @@ export const boxToFitDimensions = {
  * Then on confirmation it navigates to the preview step with the cropped image
  * file URI as a param.
  */
-const Step1Cropping: React.FC<StackScreenProps<
-  ParamList,
-  "CustomImageStep1Crop"
->> = ({ navigation, route }) => {
+const Step1Cropping: React.FC<
+  StackScreenProps<ParamList, "CustomImageStep1Crop">
+> = ({ navigation, route }) => {
   const cropperRef = useRef<CropView>(null);
   const [imageToCrop, setImageToCrop] = useState<
     (ImageFileUri & Partial<ImageDimensions>) | null
@@ -115,10 +114,8 @@ const Step1Cropping: React.FC<StackScreenProps<
     }
   }, [cropperRef, rotated, setRotated]);
 
-  const [
-    containerDimensions,
-    setContainerDimensions,
-  ] = useState<ImageDimensions | null>(null);
+  const [containerDimensions, setContainerDimensions] =
+    useState<ImageDimensions | null>(null);
   const onContainerLayout = useCallback(({ nativeEvent: { layout } }) => {
     setContainerDimensions({ height: layout.height, width: layout.width });
   }, []);

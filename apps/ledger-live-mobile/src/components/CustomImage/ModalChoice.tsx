@@ -4,11 +4,11 @@ import styled from "styled-components/native";
 import Touchable from "../Touchable";
 
 type Props = {
-  onPress: (e?: any) => any;
+  onPress: (_?: any) => any;
   iconName: string;
   title: string;
   event: string;
-  eventProperties?: Object;
+  eventProperties?: any;
 };
 
 const StyledTouchable = styled(Touchable)`

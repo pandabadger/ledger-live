@@ -1,6 +1,7 @@
 declare global {
   interface Window {
     ReactNativeWebView: any;
+    /* eslint-disable-next-line no-unused-vars */
     reconstructImage: (width: number, height: number, hexData: string) => void;
   }
 }

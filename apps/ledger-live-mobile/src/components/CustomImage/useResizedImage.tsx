@@ -7,8 +7,8 @@ export type ResizeResult = ImageBase64Data & ImageDimensions;
 
 export type Params = Partial<ImageFileUri> & {
   targetDimensions: ImageDimensions;
-  onError: (error: Error) => void;
-  onResult: (res: ResizeResult) => void;
+  onError: (_: Error) => void;
+  onResult: (_: ResizeResult) => void;
 };
 
 /**
@@ -25,7 +25,10 @@ function useResizedImage(params: Params) {
   const { imageFileUri, targetDimensions, onError, onResult } = params;
   useEffect(() => {
     let dead = false;
-    if (!imageFileUri) return () => {};
+    if (!imageFileUri)
+      return () => {
+        dead = true;
+      };
     manipulateAsync(
       imageFileUri,
       [

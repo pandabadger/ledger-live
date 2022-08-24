@@ -11,8 +11,8 @@ import { injectedCode } from "./injectedCode/resultDataTesting";
 import { InjectedCodeDebugger } from "./InjectedCodeDebugger";
 
 export type Props = ProcessorRawResult & {
-  onError: (error: Error) => void;
-  onPreviewResult: (arg: ProcessorPreviewResult) => void;
+  onError: (_: Error) => void;
+  onPreviewResult: (_: ProcessorPreviewResult) => void;
   debug?: boolean;
 };
 
@@ -31,7 +31,7 @@ export type Props = ProcessorRawResult & {
  *
  * */
 export default class ResultDataTester extends React.Component<Props> {
-  webViewRef: WebView<{}> | null = null;
+  webViewRef: WebView | null = null;
 
   componentDidUpdate(prevProps: Props) {
     if (prevProps.hexData !== this.props.hexData) {

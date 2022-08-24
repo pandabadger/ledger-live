@@ -1,9 +1,11 @@
 declare global {
   interface Window {
     ReactNativeWebView: any;
+    /* eslint-disable no-unused-vars */
     processImage: (imgBase64: string) => void;
     setImageContrast: (val: number) => void;
     setAndApplyImageContrast: (val: number) => void;
+    /* eslint-enable no-unused-vars */
     requestRawResult: () => void;
   }
 }
@@ -86,9 +88,10 @@ function codeToInject() {
     };
   }
 
-  function createCanvas(
-    image: HTMLImageElement,
-  ): { canvas: HTMLCanvasElement; context: CanvasRenderingContext2D | null } {
+  function createCanvas(image: HTMLImageElement): {
+    canvas: HTMLCanvasElement;
+    context: CanvasRenderingContext2D | null;
+  } {
     const canvas = document.createElement("canvas");
     canvas.width = image.width;
     canvas.height = image.height;

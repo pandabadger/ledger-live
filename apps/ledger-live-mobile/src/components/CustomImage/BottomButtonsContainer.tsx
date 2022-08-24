@@ -3,7 +3,7 @@ import React, { PropsWithChildren } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
-type Props = PropsWithChildren<{}>;
+type Props = PropsWithChildren<Record<string, never>>;
 
 const Container = styled(Flex).attrs({
   flexDirection: "column",

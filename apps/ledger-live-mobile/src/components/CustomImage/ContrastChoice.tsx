@@ -40,7 +40,7 @@ const CheckContainer = styled(Box).attrs({
   top: "-10px",
 })``;
 
-const CheckPill: React.FC<{}> = () => (
+const CheckPill: React.FC<Record<string, never>> = () => (
   <CheckContainer>
     <PillBackground>
       <PillForeground />

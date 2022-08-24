@@ -9,8 +9,8 @@ export type CropResult = ImageDimensions & ImageFileUri;
 
 export type Props = ImageFileUri & {
   aspectRatio: { width: number; height: number };
-  onResult: (res: CropResult) => void;
-  onError: (res: Error) => void;
+  onResult: (_: CropResult) => void;
+  onError: (_: Error) => void;
   style?: StyleProp<ViewStyle>;
   withButton?: boolean;
 };

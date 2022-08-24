@@ -47,14 +47,11 @@ This should NOT happen, it means that some data has been lost.`;
  * we try to match the binary value of the "previewed" image and the "reconstructed"
  * image.
  */
-const Step3Transfer: React.FC<StackScreenProps<
-  ParamList,
-  "CustomImageStep3Transfer"
->> = ({ route, navigation }) => {
-  const [
-    reconstructedPreviewResult,
-    setReconstructedPreviewResult,
-  ] = useState<ProcessorPreviewResult | null>(null);
+const Step3Transfer: React.FC<
+  StackScreenProps<ParamList, "CustomImageStep3Transfer">
+> = ({ route, navigation }) => {
+  const [reconstructedPreviewResult, setReconstructedPreviewResult] =
+    useState<ProcessorPreviewResult | null>(null);
 
   const { rawData, previewData } = route.params;
 

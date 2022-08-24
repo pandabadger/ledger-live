@@ -15,10 +15,9 @@ const Container = styled(SafeAreaView).attrs({
   flex: 1;
 `;
 
-const ErrorScreen: React.FC<StackScreenProps<
-  ParamList,
-  "CustomImageErrorScreen"
->> = ({ route }) => {
+const ErrorScreen: React.FC<
+  StackScreenProps<ParamList, "CustomImageErrorScreen">
+> = ({ route }) => {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const { params } = route;
   const { error } = params;

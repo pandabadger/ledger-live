@@ -15,9 +15,9 @@ export type ProcessorPreviewResult = ImageBase64Data & ImageDimensions;
 export type ProcessorRawResult = { hexData: string } & ImageDimensions;
 
 export type Props = ImageBase64Data & {
-  onError: (error: Error) => void;
-  onPreviewResult: (arg: ProcessorPreviewResult) => void;
-  onRawResult: (res: ProcessorRawResult) => void;
+  onError: (_: Error) => void;
+  onPreviewResult: (_: ProcessorPreviewResult) => void;
+  onRawResult: (_: ProcessorRawResult) => void;
   /**
    * number >= 0
    *  - 0:  full black
@@ -52,7 +52,7 @@ export default class ImageProcessor extends React.Component<Props> {
    * the parent using a ref.
    */
 
-  webViewRef: WebView<{}> | null = null;
+  webViewRef: WebView | null = null;
 
   componentDidUpdate(prevProps: Props) {
     if (prevProps.contrast !== this.props.contrast) this.setAndApplyContrast();

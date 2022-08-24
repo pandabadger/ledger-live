@@ -54,17 +54,14 @@ const contrasts = [
  * Then on confirmation it navigates to the transfer step with the raw hex data
  * of the image & the preview base 64 data URI of the image as params.
  */
-const Step2Preview: React.FC<StackScreenProps<
-  ParamList,
-  "CustomImageStep2Preview"
->> = ({ navigation, route }) => {
+const Step2Preview: React.FC<
+  StackScreenProps<ParamList, "CustomImageStep2Preview">
+> = ({ navigation, route }) => {
   const imageProcessorRef = useRef<ImageProcessor>(null);
   const [resizedImage, setResizedImage] = useState<ResizeResult | null>(null);
   const [contrast, setContrast] = useState(1);
-  const [
-    processorPreviewImage,
-    setProcessorPreviewImage,
-  ] = useState<ProcessorPreviewResult | null>(null);
+  const [processorPreviewImage, setProcessorPreviewImage] =
+    useState<ProcessorPreviewResult | null>(null);
   const [rawResultLoading, setRawResultLoading] = useState(false);
 
   const { t } = useTranslation();
@@ -102,12 +99,13 @@ const Step2Preview: React.FC<StackScreenProps<
 
   /** RESULT IMAGE HANDLING */
 
-  const handlePreviewResult: ImageProcessorProps["onPreviewResult"] = useCallback(
-    data => {
-      setProcessorPreviewImage(data);
-    },
-    [setProcessorPreviewImage],
-  );
+  const handlePreviewResult: ImageProcessorProps["onPreviewResult"] =
+    useCallback(
+      data => {
+        setProcessorPreviewImage(data);
+      },
+      [setProcessorPreviewImage],
+    );
 
   const handleRawResult: ImageProcessorProps["onRawResult"] = useCallback(
     (data: ProcessorRawResult) => {
