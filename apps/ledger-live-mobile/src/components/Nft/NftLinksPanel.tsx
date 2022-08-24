@@ -1,8 +1,11 @@
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "@react-navigation/native";
+import { useNavigation, useTheme } from "@react-navigation/native";
 import { NFTMetadata } from "@ledgerhq/types-live";
 import { View, StyleSheet, TouchableOpacity, Linking } from "react-native";
+import { useFeature } from "@ledgerhq/live-common/featureFlags/index";
+import { Icons } from "@ledgerhq/native-ui";
+import { NavigatorName, ScreenName } from "../../const";
 import ExternalLinkIcon from "../../icons/ExternalLink";
 import OpenSeaIcon from "../../icons/OpenSea";
 import RaribleIcon from "../../icons/Rarible";
@@ -15,6 +18,7 @@ type Props = {
   links: NFTMetadata["links"] | null;
   isOpen: boolean;
   onClose: () => void;
+  metadata?: NFTMetadata;
 };
 
 const NftLink = ({
@@ -46,9 +50,26 @@ const NftLink = ({
   </TouchableOpacity>
 );
 
-const NftLinksPanel = ({ links, isOpen, onClose }: Props) => {
+const NftLinksPanel = ({ links, isOpen, onClose, metadata }: Props) => {
   const { colors } = useTheme();
   const { t } = useTranslation();
+  const navigation = useNavigation();
+  const customImage = useFeature("customImage");
+
+  const { uri } = metadata?.medias?.big || {};
+
+  const handlePressCustomImage = useCallback(() => {
+    if (!uri) return;
+    navigation.navigate(NavigatorName.CustomImage, {
+      screen: ScreenName.CustomImageStep1Crop,
+      params: {
+        imageUrl: uri,
+      },
+    });
+    onClose && onClose();
+  }, [navigation, onClose, uri]);
+
+  const showCustomImageButton = customImage?.enabled && !!uri;
 
   return (
     <BottomModal
@@ -74,12 +95,31 @@ const NftLinksPanel = ({ links, isOpen, onClose }: Props) => {
 
       {!links?.rarible ? null : (
         <NftLink
+          style={styles.sectionMargin}
           leftIcon={<RaribleIcon size={36} />}
           title={`${t("nft.viewerModal.viewOn")} Rarible`}
           rightIcon={<ExternalLinkIcon size={20} color={colors.grey} />}
           onPress={() => Linking.openURL(links.rarible)}
         />
       )}
+
+      {showCustomImageButton ? (
+        <NftLink
+          title={"Custom image"}
+          style={styles.sectionMargin}
+          leftIcon={
+            <View
+              style={[
+                styles.roundIconContainer,
+                { backgroundColor: rgba(colors.live, 0.1) },
+              ]}
+            >
+              <Icons.BracketsMedium size={16} color={colors.live} />
+            </View>
+          }
+          onPress={handlePressCustomImage}
+        />
+      ) : null}
 
       {!links?.explorer ? null : (
         <>
@@ -149,7 +189,7 @@ const styles = StyleSheet.create({
   hr: {
     borderBottomWidth: 1,
     borderBottomColor: "#DFDFDF",
-    marginVertical: 24,
+    marginBottom: 24,
   },
 });
 

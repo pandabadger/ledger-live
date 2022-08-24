@@ -283,7 +283,7 @@ const NftViewer = ({ route }: Props) => {
           </Skeleton>
 
           <View style={styles.imageContainer}>
-            {nftMetadata?.media && mediaType !== "video" ? (
+            {nftMetadata?.media && mediaType === "image" ? (
               <TouchableOpacity
                 onPress={() =>
                   navigation.navigate(NavigatorName.NftNavigator, {
@@ -390,6 +390,7 @@ const NftViewer = ({ route }: Props) => {
         </View>
       </ScrollView>
       <NftLinksPanel
+        metadata={nftMetadata}
         links={nftMetadata?.links}
         isOpen={bottomModalOpen}
         onClose={closeModal}
