@@ -18,6 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import invariant from "invariant";
 import { JSONRPCRequest } from "json-rpc-2.0";
 import { UserRefusedOnDevice } from "@ledgerhq/errors";
+import { SignedOperation } from "@ledgerhq/types-live";
 import type {
   RawPlatformTransaction,
   RawPlatformSignedTransaction,
@@ -37,10 +38,7 @@ import {
 import type { AppManifest } from "@ledgerhq/live-common/platform/types";
 import type { MessageData } from "@ledgerhq/live-common/hw/types";
 import { useJSONRPCServer } from "@ledgerhq/live-common/platform/JSONRPCServer";
-import {
-  accountToPlatformAccount,
-  getPlatformTransactionSignFlowInfos,
-} from "@ledgerhq/live-common/platform/converters";
+import { accountToPlatformAccount } from "@ledgerhq/live-common/platform/converters";
 import {
   serializePlatformAccount,
   deserializePlatformTransaction,
@@ -63,7 +61,6 @@ import InfoIcon from "../../icons/Info";
 import InfoPanel from "./InfoPanel";
 import { track } from "../../analytics/segment";
 import prepareSignTransaction from "./liveSDKLogic";
-import { SignedOperation } from "@ledgerhq/types-live";
 
 const tracking = trackingWrapper(track);
 type Props = {
@@ -289,21 +286,21 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
     }) => {
       tracking.platformSignTransactionRequested(manifest);
 
-      let transactionInfoPrepared
+      let transactionInfoPrepared;
       try {
         transactionInfoPrepared = prepareSignTransaction(
           accounts,
           manifest,
           tracking,
           accountId,
-          transaction
-        );  
+          transaction,
+        );
       } catch (error) {
         return Promise.reject(error);
       }
 
       const { parentAccount, tx } = transactionInfoPrepared;
-      
+
       return new Promise((resolve, reject) => {
         navigation.navigate(NavigatorName.SignTransaction, {
           screen: ScreenName.SignTransactionSummary,
@@ -314,7 +311,13 @@ const WebPlatformPlayer = ({ manifest, inputs }: Props) => {
             accountId,
             parentId: parentAccount?.id,
             appName: params.useApp,
-            onSuccess: ({ signedOperation, transactionSignError }: { signedOperation: SignedOperation, transactionSignError: Error }) => {
+            onSuccess: ({
+              signedOperation,
+              transactionSignError,
+            }: {
+              signedOperation: SignedOperation;
+              transactionSignError: Error;
+            }) => {
               if (transactionSignError) {
                 tracking.platformSignTransactionFail(manifest);
                 reject(transactionSignError);
