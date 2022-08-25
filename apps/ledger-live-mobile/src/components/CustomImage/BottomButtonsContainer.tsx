@@ -1,9 +1,11 @@
 import { Flex } from "@ledgerhq/native-ui";
-import React, { PropsWithChildren } from "react";
+import React, { ReactNode } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
-type Props = PropsWithChildren<Record<string, never>>;
+type Props = {
+  children?: ReactNode | undefined;
+};
 
 const Container = styled(Flex).attrs({
   flexDirection: "column",

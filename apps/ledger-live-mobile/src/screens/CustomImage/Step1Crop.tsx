@@ -29,11 +29,6 @@ import BottomContainer from "../../components/CustomImage/BottomButtonsContainer
 import Touchable from "../../components/Touchable";
 import { ParamList } from "./types";
 
-export const boxToFitDimensions = {
-  width: Dimensions.get("screen").width,
-  height: Dimensions.get("screen").height,
-};
-
 /**
  * UI component that loads the input image (from the route params) &
  * displays it in a cropping UI with a confirm button at the bottom.
@@ -116,34 +111,43 @@ const Step1Cropping: React.FC<
 
   const [containerDimensions, setContainerDimensions] =
     useState<ImageDimensions | null>(null);
-  const onContainerLayout = useCallback(({ nativeEvent: { layout } }) => {
-    setContainerDimensions({ height: layout.height, width: layout.width });
-  }, []);
+  const onContainerLayout = useCallback(
+    ({ nativeEvent: { layout } }) => {
+      if (containerDimensions !== null) return;
+      setContainerDimensions({ height: layout.height, width: layout.width });
+    },
+    [containerDimensions],
+  );
 
   const sourceDimensions = useMemo(
     () =>
-      fitImageContain(
-        {
-          height:
-            (Platform.OS === "android" && rotated
-              ? imageToCrop?.width
-              : imageToCrop?.height) ?? 200,
-          width:
-            (Platform.OS === "android" && rotated
-              ? imageToCrop?.height
-              : imageToCrop?.width) ?? 200,
-        },
-        boxToFitDimensions,
-      ),
-    [imageToCrop?.height, imageToCrop?.width, rotated],
+      containerDimensions
+        ? fitImageContain(
+            {
+              height:
+                (Platform.OS === "android" && rotated
+                  ? imageToCrop?.width
+                  : imageToCrop?.height) ?? 200,
+              width:
+                (Platform.OS === "android" && rotated
+                  ? imageToCrop?.height
+                  : imageToCrop?.width) ?? 200,
+            },
+            containerDimensions,
+          )
+        : null,
+    [imageToCrop?.height, imageToCrop?.width, rotated, containerDimensions],
   );
 
-  const sourceAspectRatio =
-    sourceDimensions.height / (sourceDimensions.width || 1);
-  const imageCropperStyle =
-    Math.max(sourceAspectRatio, 1 / (sourceAspectRatio || 1)) > 2
+  const sourceAspectRatio = sourceDimensions
+    ? sourceDimensions.height / (sourceDimensions.width || 1)
+    : null;
+
+  const imageCropperStyle = sourceAspectRatio
+    ? Math.max(sourceAspectRatio, 1 / (sourceAspectRatio || 1)) > 2
       ? containerDimensions
-      : sourceDimensions;
+      : sourceDimensions
+    : null;
 
   return (
     <Flex flex={1}>
@@ -160,12 +164,12 @@ const Step1Cropping: React.FC<
           justifyContent="center"
           alignItems="center"
         >
-          {imageToCrop ? (
+          {imageCropperStyle && imageToCrop ? (
             <ImageCropper
               ref={cropperRef}
               imageFileUri={imageToCrop.imageFileUri}
               aspectRatio={cropAspectRatio}
-              style={imageCropperStyle}
+              style={imageCropperStyle} // this component unfortunately needs absolute height & width values
               onError={handleError}
               onResult={handleCropResult}
             />
