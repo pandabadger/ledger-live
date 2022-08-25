@@ -390,7 +390,7 @@ const NftViewer = ({ route }: Props) => {
         </View>
       </ScrollView>
       <NftLinksPanel
-        metadata={nftMetadata}
+        nftMetadata={nftMetadata}
         links={nftMetadata?.links}
         isOpen={bottomModalOpen}
         onClose={closeModal}

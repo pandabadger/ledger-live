@@ -1,10 +1,11 @@
 import React, { memo, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigation, useTheme } from "@react-navigation/native";
-import { NFTMetadata } from "@ledgerhq/types-live";
+import { NFTMediaSize, NFTMetadata } from "@ledgerhq/types-live";
 import { View, StyleSheet, TouchableOpacity, Linking } from "react-native";
 import { useFeature } from "@ledgerhq/live-common/featureFlags/index";
 import { Icons } from "@ledgerhq/native-ui";
+import { getMetadataMediaTypes } from "../../logic/nft";
 import { NavigatorName, ScreenName } from "../../const";
 import ExternalLinkIcon from "../../icons/ExternalLink";
 import OpenSeaIcon from "../../icons/OpenSea";
@@ -13,13 +14,12 @@ import GlobeIcon from "../../icons/Globe";
 import BottomModal from "../BottomModal";
 import { rgba } from "../../colors";
 import LText from "../LText";
-import { bottom } from "styled-system";
 
 type Props = {
   links: NFTMetadata["links"] | null;
   isOpen: boolean;
   onClose: () => void;
-  metadata?: NFTMetadata;
+  nftMetadata?: NFTMetadata;
 };
 
 const NftLink = ({
@@ -51,15 +51,27 @@ const NftLink = ({
   </TouchableOpacity>
 );
 
-const NftLinksPanel = ({ links, isOpen, onClose, metadata }: Props) => {
+const NftLinksPanel = ({ links, isOpen, onClose, nftMetadata }: Props) => {
   const { colors } = useTheme();
   const { t } = useTranslation();
   const navigation = useNavigation();
   const customImage = useFeature("customImage");
 
-  const { uri } = metadata?.medias?.big || {};
+  const mediaTypes = useMemo(
+    () => (nftMetadata ? getMetadataMediaTypes(nftMetadata) : null),
+    [nftMetadata],
+  );
+  const mediaSizeForCustomImage = mediaTypes
+    ? (["big", "preview"] as NFTMediaSize[]).find(
+        size => mediaTypes[size] === "image",
+      )
+    : null;
+  const customImageUri =
+    (mediaSizeForCustomImage &&
+      nftMetadata?.medias?.[mediaSizeForCustomImage]?.uri) ||
+    null;
 
-  const showCustomImageButton = customImage?.enabled && !!uri;
+  const showCustomImageButton = customImage?.enabled && !!customImageUri;
 
   const handleOpenOpenSea = useCallback(() => {
     links?.opensea && Linking.openURL(links?.opensea);
@@ -74,15 +86,15 @@ const NftLinksPanel = ({ links, isOpen, onClose, metadata }: Props) => {
   }, [links?.explorer]);
 
   const handlePressCustomImage = useCallback(() => {
-    if (!uri) return;
+    if (!customImageUri) return;
     navigation.navigate(NavigatorName.CustomImage, {
       screen: ScreenName.CustomImageStep1Crop,
       params: {
-        imageUrl: uri,
+        imageUrl: customImageUri,
       },
     });
     onClose && onClose();
-  }, [navigation, onClose, uri]);
+  }, [navigation, onClose, customImageUri]);
 
   const content = useMemo(() => {
     const topSection = [
