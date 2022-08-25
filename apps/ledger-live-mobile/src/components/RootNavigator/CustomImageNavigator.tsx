@@ -40,7 +40,7 @@ export default function CustomImageNavigator() {
       <Stack.Screen
         name={ScreenName.CustomImageErrorScreen as "CustomImageErrorScreen"}
         component={ErrorScreen}
-        options={{ title: "", headerLeft: Empty }}
+        options={{ title: "", headerLeft: Empty, gestureEnabled: false }}
       />
     </Stack.Navigator>
   );
