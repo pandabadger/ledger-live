@@ -2,7 +2,14 @@ import { NFTMetadata, NFTMediaSize } from "@ledgerhq/types-live";
 
 const mimeTypesMap = {
   video: ["video/mp4", "video/webm", "video/ogg"],
-  image: ["image/jpeg", "image/png", "image/gif", "image/webp"],
+  image: [
+    "image/jpeg",
+    "image/png",
+    "image/gif",
+    "image/webp",
+    "image/svg",
+    "image/svg+xml",
+  ],
 };
 const mimeTypesCategories = Object.keys(mimeTypesMap) as Array<
   keyof typeof mimeTypesMap
