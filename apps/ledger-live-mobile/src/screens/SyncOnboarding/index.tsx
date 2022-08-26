@@ -22,6 +22,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTranslation } from "react-i18next";
 import { getDeviceModel } from "@ledgerhq/devices";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { ScreenName } from "../../const";
 import { SyncOnboardingStackParamList } from "../../components/RootNavigator/SyncOnboardingNavigator";
@@ -156,10 +157,8 @@ export const SyncOnboarding = ({ navigation, route }: Props) => {
   const [pollingPeriodMs, setPollingPeriodMs] = useState<number>(
     normalPollingPeriodMs,
   );
-  const [
-    resyncOverlayDisplayDelayMs,
-    setResyncOverlayDisplayDelayMs,
-  ] = useState<number>(normalResyncOverlayDisplayDelayMs);
+  const [resyncOverlayDisplayDelayMs, setResyncOverlayDisplayDelayMs] =
+    useState<number>(normalResyncOverlayDisplayDelayMs);
 
   const [desyncTimeoutMs, setDesyncTimeoutMs] = useState<number>(
     normalDesyncTimeoutMs,
@@ -254,7 +253,7 @@ export const SyncOnboarding = ({ navigation, route }: Props) => {
   }, [deviceOnboardingState]);
 
   // When the user gets close to the seed generation step, sets the lost synchronization delay
-  // and timers to a higher value. It avoids having a warning message while the connection is lost 
+  // and timers to a higher value. It avoids having a warning message while the connection is lost
   // because the device is generating the seed.
   useEffect(() => {
     if (
@@ -327,12 +326,15 @@ export const SyncOnboarding = ({ navigation, route }: Props) => {
         <Flex
           flexDirection="row"
           justifyContent="space-between"
+          alignItems="center"
           pt={7}
-          px={7}
-          pb={4}
+          px={6}
+          pb={5}
         >
           <LanguageSelect productName={productName} />
-          <Button type="default" Icon={CloseMedium} onPress={handleClose} />
+          <TouchableOpacity onPress={handleClose}>
+            <CloseMedium size={24} />
+          </TouchableOpacity>
         </Flex>
         <Flex flex={1}>
           <ResyncOverlay

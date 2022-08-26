@@ -12,6 +12,7 @@ import { useBleDevicesScanning } from "@ledgerhq/live-common/ble/hooks/useBleDev
 import { ScannedDevice } from "@ledgerhq/live-common/ble/types";
 import { getDeviceModel } from "@ledgerhq/devices";
 import { useTranslation } from "react-i18next";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { SyncOnboardingStackParamList } from "../../components/RootNavigator/SyncOnboardingNavigator";
 import { ScreenName } from "../../const";
@@ -43,12 +44,10 @@ export const BleDeviceScanning = ({ navigation, route }: Props) => {
   const productName =
     getDeviceModel(filterByModelId).productName || filterByModelId;
 
-  const [locationDisabledError, setLocationDisabledError] = useState<boolean>(
-    false,
-  );
-  const [locationUnauthorizedError, setLocationUnauthorizedError] = useState<
-    boolean
-  >(false);
+  const [locationDisabledError, setLocationDisabledError] =
+    useState<boolean>(false);
+  const [locationUnauthorizedError, setLocationUnauthorizedError] =
+    useState<boolean>(false);
   const [stopBleScanning, setStopBleScanning] = useState<boolean>(false);
 
   // If we want to filter on known devices:
@@ -139,16 +138,13 @@ export const BleDeviceScanning = ({ navigation, route }: Props) => {
   return (
     <RequiresBLE>
       <SafeAreaView>
-        <Flex bg="background.main" height="100%">
+        <Flex pt={8} px={6} bg="background.main" height="100%">
           <Flex flexDirection="row" justifyContent="space-between">
-            <Button
-              Icon={ArrowLeftMedium}
-              size="medium"
-              onPress={handleNavigateBack}
-            />
+            <TouchableOpacity onPress={handleNavigateBack}>
+              <ArrowLeftMedium size={24} />
+            </TouchableOpacity>
           </Flex>
-
-          <Flex px={4}>
+          <Flex>
             <Flex mb={8} alignItems="center">
               <BluetoothThingy />
             </Flex>

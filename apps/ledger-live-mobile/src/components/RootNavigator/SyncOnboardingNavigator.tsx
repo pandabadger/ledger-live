@@ -6,14 +6,12 @@ import { DeviceModelId } from "@ledgerhq/types-devices";
 import { getStackNavigatorConfig } from "../../navigation/navigatorConfig";
 import { ScreenName } from "../../const";
 import { SyncOnboarding } from "../../screens/SyncOnboarding";
-import { DeviceModelSelection } from "../../screens/SyncOnboarding/DeviceModelSelection";
 import { BleDeviceScanning } from "../../screens/SyncOnboarding/BleDevicesScanning";
 import { BleDevicePairing } from "../../screens/SyncOnboarding/BleDevicePairing";
 import CompletionScreen from "../../screens/SyncOnboarding/CompletionScreen";
 
 export type SyncOnboardingStackParamList = {
   SyncOnboardingCompanion: { device: Device };
-  DeviceModelSelection: undefined;
   BleDevicesScanning: { filterByModelId: DeviceModelId };
   BleDevicePairing: { deviceToPair: Device };
   SyncOnboardingCompletion: undefined;
@@ -23,9 +21,10 @@ const Stack = createStackNavigator<SyncOnboardingStackParamList>();
 
 export const SyncOnboardingNavigator = () => {
   const { colors } = useTheme();
-  const stackNavigatorConfig = useMemo(() => getStackNavigatorConfig(colors), [
-    colors,
-  ]);
+  const stackNavigatorConfig = useMemo(
+    () => getStackNavigatorConfig(colors),
+    [colors],
+  );
 
   return (
     <Stack.Navigator
@@ -34,10 +33,6 @@ export const SyncOnboardingNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen
-        name={ScreenName.DeviceModelSelection as "DeviceModelSelection"}
-        component={DeviceModelSelection}
-      />
       <Stack.Screen
         name={ScreenName.BleDevicesScanning as "BleDevicesScanning"}
         component={BleDeviceScanning}
